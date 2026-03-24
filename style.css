@@ -382,7 +382,7 @@ section { padding: 7rem 4rem; }
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(0, 0, 0, 1);
 }
 
 .spotify-icon {
@@ -424,7 +424,7 @@ section { padding: 7rem 4rem; }
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(0, 0, 0, 1);
 }
 
 .case-card-body { padding: 2rem; }
