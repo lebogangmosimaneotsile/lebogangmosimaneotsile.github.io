@@ -1,13 +1,31 @@
-// Script for revealing extra information
-const learnMoreBtn = document.getElementById('learn-more-btn');
-const extraInfo = document.getElementById('extra-info');
+// Scroll fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
 
-learnMoreBtn.addEventListener('click', function() {
-  if (extraInfo.style.display === 'none') {
-    extraInfo.style.display = 'block';
-    learnMoreBtn.textContent = 'Show less';
-  } else {
-    extraInfo.style.display = 'none';
-    learnMoreBtn.textContent = 'Want to know more?';
-  }
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.style.color = '';
+    if (link.getAttribute('href') === `#${current}`) {
+      link.style.color = 'var(--rose-dark)';
+    }
+  });
 });
