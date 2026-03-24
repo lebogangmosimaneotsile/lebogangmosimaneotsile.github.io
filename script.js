@@ -1,16 +1,27 @@
-// Scroll fade-in
+// Scroll fade-in - reliable version
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 100);
+      entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { 
+  threshold: 0,
+  rootMargin: '0px 0px -50px 0px'
+});
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Also trigger any elements already in view on page load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.fade-in').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    }
+  });
+});
 
 // Smooth active nav highlight
 const sections = document.querySelectorAll('section[id]');
