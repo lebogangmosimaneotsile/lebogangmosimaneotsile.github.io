@@ -1,198 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lebogang Mosimaneotsile — UX Designer & Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Josefin+Sans:wght@200;300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lebogang Mosimaneotsile — UX Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
 <!-- NAV -->
-<nav>
+<nav id="nav">
   <a href="#" class="nav-logo">
-    <img src="logo.svg" alt="LM Logo" style="height: 48px; width: auto;">
+    <img src="logo.svg" alt="LM">
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#dev">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <p class="hero-tag">UX Research · UI Design · Front-End Development</p>
-  <h1 class="hero-name">
-    Lebogang
-    <em>Mosimaneotsile</em>
-  </h1>
-  <p class="hero-title">Designing experiences that feel effortless.</p>
-  <div class="hero-divider"></div>
-  <p class="hero-bio">I'm a UX Researcher and UI Designer with a background in Psychology and Sociology — which means I don't just design interfaces, I design for how people actually think, feel and behave.</p>
-  <div class="hero-cta">
-    <a href="#work" class="btn-primary">View My Work</a>
-    <a href="#contact" class="btn-secondary">Get In Touch</a>
+  <div class="hero-bg">
+    <div class="hero-bg-blob hero-bg-blob-1"></div>
+    <div class="hero-bg-blob hero-bg-blob-2"></div>
   </div>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow"><span>UX Research · UI Design · Front-End Development</span></p>
+    <h1 class="hero-name">
+      <span class="hero-name-line"><span>Lebogang</span></span>
+      <span class="hero-name-line"><span>Mosimaneotsile</span></span>
+    </h1>
+    <p class="hero-title">Designing experiences that feel effortless.</p>
+    <p class="hero-bio">Most designers learn to understand users. I studied them for four years. My BA in Psychology and Sociology means every design decision I make is grounded in real human behaviour — not assumptions. I bring research rigour, design craft, and front-end capability to every project.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary"><span>View My Work</span></a>
+      <a href="#contact" class="btn-ghost">Get In Touch →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-card hero-card-1">
+        <p class="hero-card-label">Case Study</p>
+        <h3 class="hero-card-title">Kopanang</h3>
+        <p class="hero-card-sub">Digital community for faith groups — research-led, human-centred.</p>
+        <span class="hero-card-tag">UX Research · UI Design</span>
+      </div>
+      <div class="hero-line"></div>
+      <div class="hero-card hero-card-2">
+        <p class="hero-card-label">Case Study</p>
+        <h3 class="hero-card-title">Spotify Redesign</h3>
+        <p class="hero-card-sub">Reimagining library navigation for music switchers.</p>
+        <span class="hero-card-tag">Information Architecture</span>
+      </div>
+    </div>
+  </div>
+
   <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+    <span>Scroll to explore</span>
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">
+      <span class="marquee-text">UX Research</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">UI Design</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Information Architecture</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Human-Centred Design</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Behavioural Research</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Front-End Development</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Figma</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">User Testing</span>
+      <span class="marquee-dot"></span>
+    </div>
+    <div class="marquee-item" aria-hidden="true">
+      <span class="marquee-text">UX Research</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">UI Design</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Information Architecture</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Human-Centred Design</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Behavioural Research</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Front-End Development</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">Figma</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-text">User Testing</span>
+      <span class="marquee-dot"></span>
+    </div>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <section class="about" id="about">
-  <p class="section-label fade-in">About</p>
-  <h2 class="section-heading fade-in">A little about <em>me</em></h2>
-  <div class="about-grid">
-    <div class="about-text fade-in">
-      <p>I hold a BA in Psychology and Sociology from the University of Botswana — a background that gives me an edge in UX work. Understanding human behaviour, cognitive patterns and social dynamics isn't just academic for me, it's the foundation of every design decision I make.</p>
-      <p>I'm currently based in Botswana and building toward a career at the intersection of UX Research, UI Design and Front-End Development, with a focus on Human-Computer Interaction. I believe the best digital products are the ones people don't have to think about.</p>
-      <p>When I'm not designing, you'll find me following sport, exploring content creation, or deep in a rabbit hole of font pairings on Pinterest.</p>
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-heading reveal reveal-delay-1">A little about me</h2>
+      <div class="about-text">
+        <p class="reveal reveal-delay-2">My path to UX didn't start with design tools — it started with people. I hold a BA in Psychology and Sociology from the University of Botswana, where I spent four years studying why people think, behave, and interact the way they do.</p>
+        <p class="reveal reveal-delay-3">That curiosity is what brought me to UX. The skills I built — designing research studies, analysing human behaviour, understanding social dynamics — are exactly what good design requires. The best digital products aren't built by people who know the most tools. They're built by people who understand users deeply enough to design for their real needs, not assumed ones.</p>
+        <p class="reveal reveal-delay-4">I bring both the research rigour of a social scientist and the technical ability to bring designs to life in code — which means I can contribute meaningfully at every stage of the product design process.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat-item">
+          <p class="stat-number">2</p>
+          <p class="stat-label">UX Case Studies</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">4+</p>
+          <p class="stat-label">Years of Research</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">3</p>
+          <p class="stat-label">Dev Projects</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number">BA</p>
+          <p class="stat-label">Psych & Sociology</p>
+        </div>
+      </div>
     </div>
-    <div class="about-skills fade-in">
-      <div class="skills-group">
-        <p class="skills-group-title">Design & Research</p>
-        <div class="skills-list">
+    <div class="about-right">
+      <div class="skills-group reveal">
+        <p class="skills-group-label">UX Design & Research</p>
+        <div class="skills-tags">
           <span class="skill-tag">UX Research</span>
           <span class="skill-tag">UI Design</span>
           <span class="skill-tag">Figma</span>
           <span class="skill-tag">Wireframing</span>
           <span class="skill-tag">Prototyping</span>
-          <span class="skill-tag">User Testing</span>
+          <span class="skill-tag">Usability Testing</span>
           <span class="skill-tag">Information Architecture</span>
+          <span class="skill-tag">Journey Mapping</span>
+          <span class="skill-tag">Empathy Mapping</span>
+          <span class="skill-tag">Design Thinking</span>
+          <span class="skill-tag">Design Sprints</span>
+          <span class="skill-tag">Interaction Design</span>
+          <span class="skill-tag">Accessibility</span>
+          <span class="skill-tag">Equity-Focused Design</span>
+          <span class="skill-tag">Responsive Design</span>
         </div>
       </div>
-      <div class="skills-group">
-        <p class="skills-group-title">Development</p>
-        <div class="skills-list">
+      <div class="skills-group reveal reveal-delay-1">
+        <p class="skills-group-label">Development</p>
+        <div class="skills-tags">
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS</span>
           <span class="skill-tag">JavaScript</span>
           <span class="skill-tag">Responsive Design</span>
         </div>
       </div>
-      <div class="skills-group">
-        <p class="skills-group-title">Background</p>
-        <div class="skills-list">
-          <span class="skill-tag">Psychology</span>
-          <span class="skill-tag">Sociology</span>
+      <div class="skills-group reveal reveal-delay-2">
+        <p class="skills-group-label">Research Methods</p>
+        <div class="skills-tags">
           <span class="skill-tag">Qualitative Research</span>
-          <span class="skill-tag">Human Behaviour</span>
+          <span class="skill-tag">Quantitative Research</span>
+          <span class="skill-tag">Survey Design</span>
+          <span class="skill-tag">User Interviews</span>
+          <span class="skill-tag">Behavioural Analysis</span>
+          <span class="skill-tag">Insight Synthesis</span>
+          <span class="skill-tag">SPSS</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CREDENTIALS STRIP -->
+<div class="credentials-strip">
+  <div class="credentials-inner">
+    <div class="credential-item reveal">
+      <p class="credential-icon">🎓</p>
+      <div>
+        <p class="credential-title">BA Psychology & Sociology</p>
+        <p class="credential-sub">University of Botswana · 2018–2023</p>
+      </div>
+    </div>
+    <div class="credential-divider"></div>
+    <div class="credential-item reveal reveal-delay-1">
+      <p class="credential-icon">📜</p>
+      <div>
+        <p class="credential-title">Google UX Design Certificate</p>
+        <p class="credential-sub">Coursera · 2026</p>
+      </div>
+    </div>
+    <div class="credential-divider"></div>
+    <div class="credential-item reveal reveal-delay-2">
+      <p class="credential-icon">💻</p>
+      <div>
+        <p class="credential-title">Front-End Web Development</p>
+        <p class="credential-sub">Udemy · 2024</p>
+      </div>
+    </div>
+    <div class="credential-divider"></div>
+    <div class="credential-item reveal reveal-delay-3">
+      <a href="Lebogang_Mosimaneotsile_Master_CV.pdf" download class="cv-download-btn">
+        <span>Download CV</span>
+        <span class="cv-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- WORK -->
 <section class="work" id="work">
-  <p class="section-label fade-in">Case Studies</p>
-  <h2 class="section-heading fade-in">Selected <em>work</em></h2>
+  <div class="work-header">
+    <div>
+      <p class="section-label reveal">Case Studies</p>
+      <h2 class="section-heading reveal reveal-delay-1">Selected work</h2>
+    </div>
+  </div>
   <div class="work-grid">
-
-    <!-- Kopanang -->
-    <a href="https://www.notion.so/Kopanang-A-Digital-Community-for-Faith-Groups-327d7b8d6f85801d9e24df285b41b39d" target="_blank" class="case-card fade-in">
-      <div class="case-card-image kopanang">
-        <div class="case-mockup">
-          <div class="case-mockup-kopanang">
-            <div class="kopanang-icon">K</div>
-            <span class="kopanang-label">Kopanang</span>
-          </div>
+    <a href="https://www.notion.so/Kopanang-A-Digital-Community-for-Faith-Groups-327d7b8d6f85801d9e24df285b41b39d" target="_blank" class="case-card reveal">
+      <div class="case-card-visual kopanang">
+        <div class="case-card-visual-inner">
+          <div class="case-icon kopanang-icon">K</div>
+          <span class="case-card-visual-label">Kopanang</span>
+        </div>
+        <div class="case-card-overlay">
+          <span class="case-card-overlay-text">View Case Study →</span>
         </div>
       </div>
       <div class="case-card-body">
-        <p class="case-card-tag">UX Research · UI Design</p>
+        <p class="case-card-tag">UX Research · UI Design · Qualitative Research</p>
         <h3 class="case-card-title">Kopanang — A Digital Community for Faith Groups</h3>
-        <p class="case-card-desc">A research-led app concept born from a qualitative study on how COVID-19 affected religious practices in Botswana.</p>
-        <span class="case-card-link">View Case Study</span>
+        <p class="case-card-desc">Research-led app concept born from a real academic study — 72 participants, two user groups, full qualitative methodology. Turned lived human experience into a purposeful digital product.</p>
       </div>
     </a>
-
-    <!-- Spotify -->
-    <a href="https://www.notion.so/Spotify-Mobile-App-Redesign-32cd7b8d6f8580edb87cecedefdec352" target="_blank" class="case-card fade-in">
-      <div class="case-card-image spotify">
-        <div class="case-mockup">
-          <div class="spotify-icon">
-            <div class="spotify-circle">
-              <div class="spotify-bars">
-                <span></span><span></span><span></span>
-              </div>
+    <a href="https://www.notion.so/Spotify-Mobile-App-Redesign-32cd7b8d6f8580edb87cecedefdec352" target="_blank" class="case-card reveal reveal-delay-2">
+      <div class="case-card-visual spotify">
+        <div class="case-card-visual-inner">
+          <div class="case-icon spotify-icon">
+            <div class="spotify-bars">
+              <span></span><span></span><span></span>
             </div>
-            <span class="spotify-label">Spotify Redesign</span>
           </div>
+          <span class="case-card-visual-label">Spotify Redesign</span>
+        </div>
+        <div class="case-card-overlay">
+          <span class="case-card-overlay-text">View Case Study →</span>
         </div>
       </div>
       <div class="case-card-body">
-        <p class="case-card-tag">UX Research · UI Design</p>
+        <p class="case-card-tag">UX Research · UI Design · Information Architecture</p>
         <h3 class="case-card-title">Spotify Mobile App Redesign</h3>
-        <p class="case-card-desc">A self-initiated redesign focused on improving library navigation and music discoverability for users switching from Apple Music.</p>
-        <span class="case-card-link">View Case Study</span>
+        <p class="case-card-desc">Self-initiated redesign that identified three core navigation failures — validated by 2.3M users on social media. Solved library access, filter hierarchy, and IA defaults through targeted design decisions.</p>
       </div>
     </a>
-
   </div>
 </section>
 
 <!-- DEV PROJECTS -->
 <section class="dev" id="dev">
-  <p class="section-label fade-in">Development</p>
-  <h2 class="section-heading fade-in">Front-End <em>projects</em></h2>
+  <p class="section-label reveal">Development</p>
+  <h2 class="section-heading reveal reveal-delay-1">Front-End projects</h2>
   <div class="dev-grid">
-
-    <a href="https://lebogangmosimaneotsile.github.io/Museum-of-Candy-Project-website/" target="_blank" class="dev-card fade-in">
-      <p class="dev-card-number">01</p>
-      <h3 class="dev-card-title">Museum of Candy</h3>
-      <p class="dev-card-desc">A visually rich, fully responsive website for a fictional candy museum built with HTML and CSS.</p>
-      <div class="dev-card-stack">
+    <a href="https://lebogangmosimaneotsile.github.io/Museum-of-Candy-Project-website/" target="_blank" class="dev-card reveal">
+      <p class="dev-num">01</p>
+      <h3 class="dev-title">Museum of Candy</h3>
+      <p class="dev-desc">A visually rich, fully responsive website for a fictional candy museum.</p>
+      <div class="dev-stack">
         <span class="stack-tag">HTML</span>
         <span class="stack-tag">CSS</span>
       </div>
     </a>
-
-    <a href="https://lebogangmosimaneotsile.github.io/To-do-list/" target="_blank" class="dev-card fade-in">
-      <p class="dev-card-number">02</p>
-      <h3 class="dev-card-title">To-Do List</h3>
-      <p class="dev-card-desc">A clean, interactive task management app with add, complete and delete functionality.</p>
-      <div class="dev-card-stack">
-        <span class="stack-tag">HTML</span>
-        <span class="stack-tag">CSS</span>
-        <span class="stack-tag">JavaScript</span>
-      </div>
-    </a>
-
-    <a href="https://lebogangmosimaneotsile.github.io/Rock-Paper-Scissors-game/" target="_blank" class="dev-card fade-in">
-      <p class="dev-card-number">03</p>
-      <h3 class="dev-card-title">Rock Paper Scissors</h3>
-      <p class="dev-card-desc">A browser-based game with score tracking and animated results.</p>
-      <div class="dev-card-stack">
+    <a href="https://lebogangmosimaneotsile.github.io/To-do-list/" target="_blank" class="dev-card reveal reveal-delay-1">
+      <p class="dev-num">02</p>
+      <h3 class="dev-title">To-Do List</h3>
+      <p class="dev-desc">A clean interactive task management app with add, complete and delete functionality.</p>
+      <div class="dev-stack">
         <span class="stack-tag">HTML</span>
         <span class="stack-tag">CSS</span>
         <span class="stack-tag">JavaScript</span>
       </div>
     </a>
-
+    <a href="https://lebogangmosimaneotsile.github.io/Rock-Paper-Scissors-game/" target="_blank" class="dev-card reveal reveal-delay-2">
+      <p class="dev-num">03</p>
+      <h3 class="dev-title">Rock Paper Scissors</h3>
+      <p class="dev-desc">A browser-based game with score tracking and animated results.</p>
+      <div class="dev-stack">
+        <span class="stack-tag">HTML</span>
+        <span class="stack-tag">CSS</span>
+        <span class="stack-tag">JavaScript</span>
+      </div>
+    </a>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <p class="section-label fade-in">Contact</p>
-  <h2 class="section-heading fade-in">Let's work <em>together</em></h2>
-  <p class="fade-in">I'm currently open to UX Research, UI Design and Front-End Development opportunities. If you have a project or role you'd like to discuss, I'd love to hear from you.</p>
-  <div class="contact-links fade-in">
-    <a href="/cdn-cgi/l/email-protection#432f26212c24222d242e2c302a2e222d262c37302a2f2603242e222a2f6d202c2e" class="contact-link primary">Send an Email</a>
-    <a href="https://www.linkedin.com/in/lebogangmosimaneotsile/" target="_blank" class="contact-link">LinkedIn</a>
+  <div class="contact-inner">
+    <p class="section-label reveal">Contact</p>
+    <h2 class="section-heading reveal reveal-delay-1">Let's work together</h2>
+    <p class="contact-text reveal reveal-delay-2">I'm currently open to UX Research, UI Design and Front-End Development opportunities. If you have a project or role you'd like to discuss, I'd love to hear from you.</p>
+    <div class="contact-actions reveal reveal-delay-3">
+      <a href="mailto:lebogangmosimaneotsile@gmail.com" class="contact-btn primary">Send an Email</a>
+      <a href="https://www.linkedin.com/in/lebogangmosimaneotsile/" target="_blank" class="contact-btn secondary">LinkedIn</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">
-    <img src="logo.svg" alt="LM Logo" style="height: 40px; width: auto; opacity: 0.7;">
+    <img src="logo.svg" alt="LM">
   </a>
-  <p>© 2026 Lebogang Mosimaneotsile. All rights reserved.</p>
-  <p>Designed & Built by Lebo</p>
-</foot
+  <p>© 2026 Lebogang Mosimaneotsile. Designed & Built by Lebogang Mosimaneotsile.</p>
+  <p>lebogangmosimaneotsile.github.io</p>
+</footer>
+
+<script src="script.js">
+</script>
+</body>
+</html>
