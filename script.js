@@ -53,7 +53,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => revealObserver.observe(el));
 
-// Trigger already-visible elements
 window.addEventListener('load', () => {
   reveals.forEach(el => {
     const rect = el.getBoundingClientRect();
