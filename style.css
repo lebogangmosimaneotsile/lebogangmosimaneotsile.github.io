@@ -44,27 +44,6 @@ body {
 
 .cursor-dot::before { content: '♥'; }
 
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(196, 148, 148, 0.4);
-  border-radius: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  transition: all 0.18s ease;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0.5;
-}
-
-.cursor-ring.hovered {
-  width: 48px;
-  height: 48px;
-  background: rgba(196, 148, 148, 0.06);
-  border-color: var(--rose-dark);
-  opacity: 0.8;
-}
-
 /* ─── NAV ──────────────────────────────────────────────── */
 nav {
   position: fixed;
