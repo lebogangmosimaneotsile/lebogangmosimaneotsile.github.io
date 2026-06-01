@@ -6,6 +6,40 @@
 <title>Lebogang Mosimaneotsile — UX Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* ─── PROSPERITY BANK CARD ─────────────────────────────── */
+.case-card-visual.prosperity {
+  background: linear-gradient(145deg, #00274D 0%, #001428 60%, #0a1f38 100%);
+  position: relative;
+  overflow: hidden;
+}
+.case-card-visual.prosperity::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.prosperity-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+}
+
+/* ─── FTS 3-CARD GRID ──────────────────────────────────── */
+.fts-grid .fts-card:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: 50%;
+}
+@media (max-width: 900px) {
+  .fts-grid .fts-card:nth-child(3) {
+    grid-column: auto;
+    max-width: 100%;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -57,9 +91,9 @@
       <div class="hero-line"></div>
       <div class="hero-card hero-card-2">
         <p class="hero-card-label">Case Study</p>
-        <h3 class="hero-card-title">Spotify Redesign</h3>
-        <p class="hero-card-sub">Reimagining library navigation for music switchers.</p>
-        <span class="hero-card-tag">Information Architecture</span>
+        <h3 class="hero-card-title">Prosperity Bank Website</h3>
+        <p class="hero-card-sub">Responsive banking website across desktop and mobile with full design system.</p>
+        <span class="hero-card-tag">UI Design · Design System</span>
       </div>
     </div>
   </div>
@@ -109,7 +143,7 @@
       </div>
       <div class="about-stats reveal">
         <div class="stat-item">
-          <p class="stat-number">3</p>
+          <p class="stat-number">4</p>
           <p class="stat-label">UX Case Studies</p>
         </div>
         <div class="stat-item">
@@ -145,6 +179,7 @@
           <span class="skill-tag">Accessibility</span>
           <span class="skill-tag">Equity-Focused Design</span>
           <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">Design Systems</span>
         </div>
       </div>
       <div class="skills-group reveal reveal-delay-1">
@@ -253,8 +288,32 @@
       </div>
     </div>
 
+    <!-- Prosperity Bank Website -->
+    <a href="https://www.notion.so/372d7b8d6f8581599ec1ff875974a078" target="_blank" class="case-card reveal reveal-delay-1">
+      <div class="case-card-visual prosperity">
+        <div class="case-card-visual-inner">
+          <div class="prosperity-mark">
+            <svg width="56" height="40" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 20 L14 8 L24 20 L14 32 Z" fill="none" stroke="rgba(201,168,76,0.8)" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M16 20 L26 8 L36 20 L26 32 Z" fill="none" stroke="rgba(201,168,76,0.65)" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M28 20 L38 8 L48 20 L38 32 Z" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="case-card-visual-label">Prosperity Bank · Website</span>
+        </div>
+        <div class="case-card-overlay">
+          <span class="case-card-overlay-text">View Case Study →</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        <p class="case-card-tag">UX/UI Design · Design System · Responsive Design · Figma</p>
+        <h3 class="case-card-title">Prosperity Bank — Responsive Banking Website</h3>
+        <p class="case-card-desc">Full brand identity, design system, and 13 hi-fidelity screens across desktop and mobile for a fictional full-service bank. Includes a two-tier loyalty programme, mobile component library, and interactive prototype.</p>
+      </div>
+    </a>
+
     <!-- Kopanang -->
-    <a href="https://www.notion.so/Kopanang-A-Digital-Community-for-Faith-Groups-327d7b8d6f85801d9e24df285b41b39d" target="_blank" class="case-card reveal reveal-delay-1">
+    <a href="https://www.notion.so/Kopanang-A-Digital-Community-for-Faith-Groups-327d7b8d6f85801d9e24df285b41b39d" target="_blank" class="case-card reveal reveal-delay-2">
       <div class="case-card-visual kopanang">
         <div class="case-card-visual-inner">
           <div class="case-icon kopanang-icon">K</div>
@@ -289,7 +348,7 @@
       <div class="case-card-body">
         <p class="case-card-tag">UX Research · UI Design · Information Architecture</p>
         <h3 class="case-card-title">Spotify Mobile App Redesign</h3>
-        <p class="case-card-desc">Self-initiated redesign that identified three core navigation failures — validated by 2.3M users on social media. Solved library access, filter hierarchy, and IA defaults through targeted design decisions.</p>
+        <p class="case-card-desc">Self-initiated redesign that identified three core navigation failures, validated by 2.3M users on social media. Solved library access, filter hierarchy, and IA defaults through targeted design decisions.</p>
       </div>
     </a>
 
