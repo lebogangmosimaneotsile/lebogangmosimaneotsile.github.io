@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banking Without Borders — Lebogang Mosimaneotsile</title>
+<title>Prosperity Bank — Lebogang Mosimaneotsile</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,6 +22,7 @@
   --italic: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Josefin Sans', sans-serif;
   --navy: #00274D;
+  --gold: #C9A84C;
 }
 html { scroll-behavior: smooth; }
 body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
@@ -155,7 +156,7 @@ nav.scrolled {
   font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink-3);
 }
 
-/* PERSONA CARDS */
+/* PERSONA / TWO-COL CARDS */
 .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2.5rem 0; }
 .persona-card {
   background: var(--cream-2); border: 1px solid rgba(196,148,148,0.2);
@@ -168,14 +169,8 @@ nav.scrolled {
 .persona-name { font-family: var(--display); font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; }
 .persona-role { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.2rem; }
 .persona-body { font-size: 0.82rem; line-height: 1.8; color: var(--ink-2); }
-.persona-statement {
-  margin-top: 1.2rem; padding: 1rem 1.2rem;
-  background: rgba(0,39,77,0.05); border-left: 2px solid rgba(0,39,77,0.3);
-  font-size: 0.8rem; line-height: 1.7; color: var(--ink-2);
-  font-style: italic;
-}
 
-/* PAIN POINTS */
+/* PAIN / FEATURE CARDS */
 .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2.5rem 0; }
 .pain-card {
   padding: 1.8rem; background: var(--cream-2);
@@ -187,6 +182,15 @@ nav.scrolled {
   margin-bottom: 0.8rem;
 }
 .pain-card-body { font-size: 0.82rem; line-height: 1.8; color: var(--ink-3); }
+
+/* SWATCHES */
+.swatch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2.5rem 0; }
+.swatch-card { background: var(--cream-2); border: 1px solid rgba(196,148,148,0.2); overflow: hidden; }
+.swatch-block { height: 90px; }
+.swatch-info { padding: 1.2rem 1.4rem; }
+.swatch-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.3rem; }
+.swatch-hex { font-size: 0.7rem; letter-spacing: 0.05em; color: var(--ink-3); margin-bottom: 0.5rem; }
+.swatch-desc { font-size: 0.78rem; line-height: 1.6; color: var(--ink-3); }
 
 /* DESIGN DECISIONS */
 .decision { margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(196,148,148,0.15); }
@@ -216,19 +220,7 @@ nav.scrolled {
 }
 .a11y-body { font-size: 0.78rem; line-height: 1.7; color: var(--ink-3); }
 
-/* TESTING */
-.test-round { margin-bottom: 2.5rem; }
-.test-round-label {
-  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--rose-dark); margin-bottom: 0.5rem;
-}
-.test-round-title {
-  font-family: var(--display); font-size: 1.1rem; font-weight: 400;
-  color: var(--ink); margin-bottom: 0.8rem;
-}
-.test-round-body { font-size: 0.88rem; line-height: 1.85; color: var(--ink-2); }
-
-/* CHANGES LIST */
+/* CHANGES / GENERIC LIST */
 .cs-list { margin: 1.5rem 0; padding: 0; }
 .cs-list li {
   display: flex; align-items: flex-start; gap: 1rem;
@@ -236,6 +228,7 @@ nav.scrolled {
   padding: 0.6rem 0; border-bottom: 1px solid rgba(196,148,148,0.1);
 }
 .cs-list li::before { content: '—'; color: var(--rose-dark); flex-shrink: 0; margin-top: 0.05rem; }
+.cs-list.tight li { padding: 0.45rem 0; font-size: 0.82rem; }
 
 /* NEXT STEPS */
 .steps-list { counter-reset: steps; margin: 1.5rem 0; }
@@ -294,32 +287,11 @@ footer .footer-logo { text-decoration: none; }
 /* DIVIDER */
 .cs-divider { height: 1px; background: rgba(196,148,148,0.15); margin: 5rem 0; }
 
-/* IMAGES */
-.cs-image-block { margin: 2rem 0; }
-.cs-image { display: block; width: 100%; height: auto; border: 1px solid rgba(196,148,148,0.15); }
-.cs-image-full { width: 100%; }
-.cs-image-caption {
-  margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.05em;
-  color: var(--ink-3); font-style: italic; line-height: 1.6;
-}
-.cs-image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
-.cs-image-grid-2 { grid-template-columns: repeat(2, 1fr); }
-.cs-image-grid-item {}
-.cs-image-grid-item .cs-image-caption { font-size: 0.68rem; }
-
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
 .reveal.revealed { opacity: 1; transform: translateY(0); }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
-
-/* SECTION LABEL */
-.section-label {
-  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--rose-dark); margin-bottom: 1.2rem;
-  display: flex; align-items: center; gap: 1rem;
-}
-.section-label::before { content: ''; width: 30px; height: 1px; background: var(--rose-dark); }
 
 @media (max-width: 900px) {
   nav { padding: 1.4rem 2rem; }
@@ -329,6 +301,7 @@ footer .footer-logo { text-decoration: none; }
   .cs-body-wide { padding: 0 1.5rem 5rem; }
   .persona-grid { grid-template-columns: 1fr; }
   .pain-grid { grid-template-columns: 1fr; }
+  .swatch-grid { grid-template-columns: 1fr; }
   .a11y-grid { grid-template-columns: 1fr; }
   .cs-contact { padding: 3rem 2rem; flex-direction: column; }
   footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
@@ -346,29 +319,30 @@ footer .footer-logo { text-decoration: none; }
 <section class="cs-hero">
   <div class="cs-hero-inner">
     <a href="index.html#work" class="cs-back">All Work</a>
-    <p class="cs-hero-tag">UX Design · Prosperity Bank</p>
-    <h1 class="cs-hero-title">Banking Without <em>Borders</em></h1>
-    <p class="cs-hero-subtitle">Mobile-first bank account setup for foreign nationals and first-time applicants</p>
+    <p class="cs-hero-tag">UX/UI Design · Prosperity Bank</p>
+    <h1 class="cs-hero-title">Prosperity Bank — <em>Responsive Website</em></h1>
+    <p class="cs-hero-subtitle">A full-service banking website designed across desktop and mobile breakpoints, from brand identity through to an interactive prototype</p>
     <div class="cs-meta">
       <div class="cs-meta-item">
         <p class="cs-meta-label">Role</p>
-        <p class="cs-meta-value">UX Designer — Sole Designer</p>
+        <p class="cs-meta-value">UX/UI Designer — Sole Designer</p>
       </div>
       <div class="cs-meta-item">
         <p class="cs-meta-label">Tools</p>
-        <p class="cs-meta-value">Figma</p>
+        <p class="cs-meta-value">Figma · Notion</p>
+      </div>
+      <div class="cs-meta-item">
+        <p class="cs-meta-label">Screens</p>
+        <p class="cs-meta-value">13 — 6 Desktop + 7 Mobile</p>
       </div>
       <div class="cs-meta-item">
         <p class="cs-meta-label">Type</p>
-        <p class="cs-meta-value">Google UX Certificate Project</p>
-      </div>
-      <div class="cs-meta-item">
-        <p class="cs-meta-label">Testing</p>
-        <p class="cs-meta-value">2 Rounds of Usability Testing</p>
+        <p class="cs-meta-value">Self-Directed Portfolio Project</p>
       </div>
     </div>
     <div class="cs-hero-action">
-      <a href="https://www.figma.com/proto/YXx9rZH2kLa6SnloYPKiNV/Portfolio-Project?node-id=34-107&t=NS2Wy2JsDxOzYL6s-1" target="_blank" class="cs-btn cs-btn-primary">View Prototype ↗</a>
+      <a href="https://www.figma.com/proto/rJ8XBIZR7cAaUw0vcqFKcV/Prosperity-Bank-Project-Web-App?node-id=2-3&t=Cf9bqy0KHCX7m7Uf-1" target="_blank" class="cs-btn cs-btn-primary">View Prototype ↗</a>
+      <a href="banking-without-borders.html" class="cs-btn cs-btn-ghost">View Mobile App Case Study →</a>
     </div>
   </div>
 </section>
@@ -377,97 +351,194 @@ footer .footer-logo { text-decoration: none; }
 <div class="cs-body">
   <div class="cs-section reveal">
     <p class="cs-section-label">Overview</p>
-    <p class="cs-prose">A mobile-first bank account setup experience designed for two underserved groups — first-time account holders and foreign nationals. The project covers the full UX process: secondary research, persona development, competitive analysis, wireframing, design system creation, high-fidelity UI, and two rounds of usability testing.</p>
+    <p class="cs-prose">A full responsive banking website designed across desktop and mobile breakpoints, covering the complete UX/UI process: brand identity, design system creation, information architecture, hi-fidelity UI design, and an interactive prototype. Built as a portfolio project to demonstrate end-to-end product design capability.</p>
   </div>
 
-  <!-- THE PROBLEM -->
+  <!-- THE BRIEF -->
   <div class="cs-section reveal">
-    <p class="cs-section-label">The Problem</p>
-    <h2 class="cs-section-heading">Two barriers. One broken process.</h2>
+    <p class="cs-section-label">The Brief</p>
+    <h2 class="cs-section-heading">One bank. Three audiences.</h2>
     <div class="cs-prose">
-      <p>Opening a bank account in South Africa requires visiting a branch. For millions of people — those in small towns without reliable transport, and foreign nationals navigating an unfamiliar system — that single requirement creates an insurmountable barrier.</p>
-      <p>But the barrier isn't just physical. Existing digital banking solutions assume users already know what they need. First-time applicants don't know which documents to bring. Foreign nationals don't know whether they even qualify. That uncertainty creates anxiety, and anxiety creates abandonment.</p>
-      <p>The goal was to design a mobile-first account setup experience that removes both barriers — the logistical and the psychological — by guiding users through every step with transparency, clarity, and a tone that builds confidence rather than confusion.</p>
+      <p>Design a credible, full-service banking website for a fictional bank, Prosperity Bank, that works seamlessly across desktop and mobile. The site needed to communicate trust, accessibility, and product clarity while serving three distinct customer segments: personal banking clients, business banking clients, and investors.</p>
+      <p>The challenge wasn't just visual. It required solving real information architecture problems: how do you present a wide product range without overwhelming users? How do you maintain brand consistency across 13+ screens at two breakpoints? And how do you design a system that scales?</p>
     </div>
   </div>
 
-  <!-- USERS -->
+  <!-- BRAND IDENTITY -->
   <div class="cs-section reveal">
-    <p class="cs-section-label">Understanding the Users</p>
-    <h2 class="cs-section-heading">Two people. Two very different walls.</h2>
-    <p class="cs-prose" style="margin-bottom: 2.5rem;">Secondary research and contextual analysis revealed two distinct user groups, each facing a completely different kind of barrier on the same journey.</p>
+    <p class="cs-section-label">Brand Identity</p>
+    <h2 class="cs-section-heading">Built as a brand, not a UI exercise.</h2>
+    <p class="cs-prose" style="margin-bottom: 2rem;">Prosperity Bank was built from the ground up as a brand. The name was chosen to communicate aspiration and financial growth across all customer segments, and every visual decision traces back to that idea.</p>
+
+    <div class="swatch-grid">
+      <div class="swatch-card">
+        <div class="swatch-block" style="background:#00274D;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Navy</p>
+          <p class="swatch-hex">#00274D</p>
+          <p class="swatch-desc">Trust, stability, authority.</p>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-block" style="background:#C9A84C;"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Gold</p>
+          <p class="swatch-hex">#C9A84C</p>
+          <p class="swatch-desc">Prosperity, premium quality, aspiration.</p>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-block" style="background:#F5F5F0; border-bottom:1px solid rgba(196,148,148,0.2);"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Off-White</p>
+          <p class="swatch-hex">#F5F5F0</p>
+          <p class="swatch-desc">Clarity, openness, breathing room.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <p class="pain-card-title">Logo</p>
+        <p class="pain-card-body">A chevron mark built from four forward-pointing arrows, representing momentum, progress, and forward movement. The repetition of the chevron reinforces consistency and direction.</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-card-title">Typography</p>
+        <p class="pain-card-body">Oswald — chosen for its strong, condensed structure that reads with authority at large display sizes while remaining legible at body scale. Used across Bold, SemiBold, Medium, and Regular weights.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESIGN SYSTEM -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Design System</p>
+    <h2 class="cs-section-heading">Built before a single screen.</h2>
+    <p class="cs-prose" style="margin-bottom: 2rem;">Before designing a single screen, a full design system was built in Figma to ensure consistency across all breakpoints — colour styles, type scales for both desktop and mobile, and a component library covering buttons, inputs, account cards, progress bars, and checkboxes in every state.</p>
 
     <div class="persona-grid">
       <div class="persona-card">
-        <p class="persona-name">Thandi Dlamini</p>
-        <p class="persona-role">24 · Recently employed admin assistant · Small town</p>
-        <p class="persona-body">Thandi's barrier is logistical. She has no reliable way to reach a physical branch, and she doesn't know what documents she needs before she even starts. Confusion at the research stage leads to hesitation and eventual abandonment — not because she can't open an account, but because the process never made her feel like she could.</p>
-        <div class="persona-statement">Thandi needs a fully mobile account setup process with upfront document guidance because she has no branch access and no way to know whether she's prepared to apply.</div>
+        <p class="persona-name">Desktop Type Scale</p>
+        <p class="persona-role">Base sizes</p>
+        <ul class="cs-list tight">
+          <li>H1 · 32px</li>
+          <li>H2 · 24px</li>
+          <li>H3 · 20px</li>
+          <li>Body · 16px</li>
+          <li>Caption · 12px</li>
+        </ul>
       </div>
       <div class="persona-card">
-        <p class="persona-name">Graça Machava</p>
-        <p class="persona-role">31 · Foreign professional · Living in South Africa</p>
-        <p class="persona-body">Graça's barrier is psychological. She is financially capable and tech-savvy — her problem is fear. She delays applying because she doesn't know whether she qualifies as a foreign national, and she'd rather not start a process she might be rejected from. No existing banking app addresses this directly.</p>
-        <div class="persona-statement">Graça needs clear eligibility guidance and a confirmation that she qualifies before she invests time in an application — because anxiety about rejection is more powerful than the inconvenience of not having an account.</div>
+        <p class="persona-name">Mobile Type Scale</p>
+        <p class="persona-role">Built separately, not scaled down</p>
+        <ul class="cs-list tight">
+          <li>Mobile/H1 · 28px</li>
+          <li>Mobile/H2 · 22px</li>
+          <li>Mobile/H3 · 18px</li>
+          <li>Mobile/Body · 14px</li>
+          <li>Mobile/Caption · 11px</li>
+        </ul>
       </div>
     </div>
 
     <div class="cs-callout">
-      <p><strong>What the research shifted:</strong> I assumed users would primarily struggle with branch accessibility. Research revealed that confusion around eligibility and document requirements was an equally significant barrier — and in Graça's case, a more significant one. This shifted the design focus from navigation alone to guided onboarding with upfront transparency.</p>
+      <p><strong>Key decision:</strong> Desktop and mobile components were kept separate. Mobile components were rebuilt to use auto layout with fill-width behaviour, minimum 48px touch targets, and mobile-appropriate sizing — rather than scaling down desktop components, which caused layout and overflow issues.</p>
     </div>
   </div>
 
-  <!-- PAIN POINTS -->
+  <!-- INFORMATION ARCHITECTURE -->
   <div class="cs-section reveal">
-    <p class="cs-section-label">Pain Points</p>
-    <h2 class="cs-section-heading">Where the process breaks down</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <p class="pain-card-title">Accessibility</p>
-        <p class="pain-card-body">Many users in small towns have no reliable way to reach a physical branch due to distance and transport constraints. The entire account opening process needed to work completely from a phone.</p>
+    <p class="cs-section-label">Information Architecture</p>
+    <h2 class="cs-section-heading">Three segments. One coherent site.</h2>
+    <div class="a11y-grid">
+      <div class="a11y-card">
+        <div class="a11y-icon">🏠</div>
+        <p class="a11y-title">Personal Banking</p>
+        <p class="a11y-body">Current accounts, savings, loans and mortgages, online and mobile banking.</p>
       </div>
-      <div class="pain-card">
-        <p class="pain-card-title">Clarity</p>
-        <p class="pain-card-body">Users don't know what documents they need before starting the application. This causes drop-off before the process even begins — not at the hard parts, but at the very start.</p>
+      <div class="a11y-card">
+        <div class="a11y-icon">💼</div>
+        <p class="a11y-title">Business Banking</p>
+        <p class="a11y-body">Business current accounts, business loans, merchant services.</p>
       </div>
-      <div class="pain-card">
-        <p class="pain-card-title">Choice Overload</p>
-        <p class="pain-card-body">Too many account options with no plain-language guidance makes selection overwhelming, especially for foreign nationals who don't understand the South African banking landscape.</p>
+      <div class="a11y-card">
+        <div class="a11y-icon">📈</div>
+        <p class="a11y-title">Investment Services</p>
+        <p class="a11y-body">Investment accounts, retirement planning, wealth management, financial planning, mutual funds, advisory services.</p>
       </div>
-      <div class="pain-card">
-        <p class="pain-card-title">Fear of Rejection</p>
-        <p class="pain-card-body">Foreign nationals delay or avoid applying entirely due to anxiety about their documentation status. The design needed to address this psychologically, not just functionally.</p>
+    </div>
+    <p class="cs-prose" style="margin-bottom: 1.5rem;"><strong>Navigation pattern:</strong> Desktop uses a full horizontal navbar with direct links to all sections. Mobile collapses into a hamburger menu that opens a full-screen nav drawer.</p>
+    <p class="cs-section-label" style="margin-bottom: 1rem;">Nav drawer contents</p>
+    <ul class="cs-list">
+      <li>Home · Products &amp; Services · Personal Banking · Business Banking · Investment Services · Rewards · About Us · Online Banking</li>
+    </ul>
+  </div>
+
+  <!-- SCREENS DESIGNED -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Screens Designed</p>
+    <h2 class="cs-section-heading">13 screens, two breakpoints.</h2>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <p class="persona-name">Desktop</p>
+        <p class="persona-role">6 screens</p>
+        <ul class="cs-list tight">
+          <li>Home</li>
+          <li>Products &amp; Services</li>
+          <li>Personal Banking</li>
+          <li>Business Banking</li>
+          <li>Investment Banking</li>
+          <li>Online Banking (Login)</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <p class="persona-name">Mobile</p>
+        <p class="persona-role">7 screens</p>
+        <ul class="cs-list tight">
+          <li>Home</li>
+          <li>Nav Drawer</li>
+          <li>Products &amp; Services</li>
+          <li>Personal Banking</li>
+          <li>Business Banking</li>
+          <li>Investment Services</li>
+          <li>Online Banking (Login)</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- DESIGN DECISIONS -->
+  <!-- KEY DESIGN DECISIONS -->
   <div class="cs-section reveal">
-    <p class="cs-section-label">Design Decisions</p>
-    <h2 class="cs-section-heading">Four decisions. Each with a reason.</h2>
+    <p class="cs-section-label">Key Design Decisions</p>
+    <h2 class="cs-section-heading">Five decisions. Each with a reason.</h2>
 
     <div class="decision">
       <p class="decision-num">01</p>
-      <h3 class="decision-title">Upfront document checklist before the application begins</h3>
-      <p class="decision-body">Users were abandoning the process before it started because they didn't know what they'd need. Rather than surfacing document requirements mid-application — where abandonment is costly — the redesign presents a clear checklist at the entry point. Users know exactly what to prepare before they commit to starting. This removes the most common reason for drop-off.</p>
+      <h3 class="decision-title">A separate mobile design system</h3>
+      <p class="decision-body">Attempting to reuse desktop components on mobile screens caused consistent layout failures — fixed widths, broken text wrapping, and incorrect touch targets. Building a dedicated mobile component set resolved these issues and is the correct long-term approach for any responsive design system.</p>
     </div>
 
     <div class="decision">
       <p class="decision-num">02</p>
-      <h3 class="decision-title">Eligibility confirmation tool for foreign nationals</h3>
-      <p class="decision-body">Graça's barrier wasn't navigational — it was emotional. She needed to know she qualified before investing time in an application. A simple eligibility filter, completed before the application begins, gives foreign nationals a clear signal that they can proceed. This directly addresses the psychological barrier that was causing avoidance behaviour.</p>
+      <h3 class="decision-title">Gold Rewards loyalty programme</h3>
+      <p class="decision-body">Rather than treating the rewards section as a generic feature, a named loyalty programme — Gold Rewards — was designed with intentional brand logic. Gold directly references the brand's accent colour, making it visually cohesive without explanation, and the name is inclusive and accessible, signalling that rewards are available to all customers.</p>
     </div>
 
     <div class="decision">
       <p class="decision-num">03</p>
-      <h3 class="decision-title">Account comparison redesigned from columns to horizontal carousel</h3>
-      <p class="decision-body">Initial wireframes used a side-by-side column layout for account comparison. Usability testing revealed users were instinctively trying to swipe between options — they recognised the carousel pattern before it existed. That behavioural signal validated a redesign: one account at a time, with a peeking card on the right edge signalling that more options exist. This reduces cognitive load and mirrors how people naturally browse on mobile.</p>
+      <h3 class="decision-title">A two-tier loyalty ecosystem</h3>
+      <p class="decision-body">Gold Rewards functions as the entry-level programme for all customers. A second tier — The Prosperity Circle — was conceived as an invitation-only premium tier for wealth management and investment clients. This creates aspiration within the rewards structure: Gold Rewards members have something to work toward. The decision was driven by product thinking, not just visual design.</p>
     </div>
 
     <div class="decision">
       <p class="decision-num">04</p>
-      <h3 class="decision-title">Single primary CTA on the home screen</h3>
-      <p class="decision-body">The home screen was originally designed with multiple entry points. Research showed that first-time users need clarity, not options. Reducing the home screen to a single primary CTA — with a secondary login option — eliminates decision fatigue at the most critical moment: first impression.</p>
+      <h3 class="decision-title">A full-screen nav drawer on mobile</h3>
+      <p class="decision-body">Rather than a standard dropdown, a full-screen navy overlay was used for mobile navigation. This gives each nav item adequate tap target space, removes the visual complexity of overlapping content, and feels native to modern mobile banking apps.</p>
+    </div>
+
+    <div class="decision">
+      <p class="decision-num">05</p>
+      <h3 class="decision-title">A Gold Rewards promotional banner</h3>
+      <p class="decision-body">The bottom banner on content screens was used as a promotional placement for Gold Rewards, replacing a generic image placeholder with purposeful product marketing. This makes the site feel like a real banking product rather than a design exercise.</p>
     </div>
   </div>
 
@@ -479,62 +550,33 @@ footer .footer-logo { text-decoration: none; }
       <div class="a11y-card">
         <div class="a11y-icon">👁</div>
         <p class="a11y-title">Colour Contrast</p>
-        <p class="a11y-body">Primary Navy (#00274D) paired with Off-White (#F5F5F0) ensures text is readable for users with visual impairments, meeting WCAG contrast guidelines throughout.</p>
+        <p class="a11y-body">Navy (#00274D) on Off-White (#F5F5F0) meets WCAG AA contrast requirements. Gold on navy was used for decorative and interactive elements only, never for body text.</p>
       </div>
       <div class="a11y-card">
         <div class="a11y-icon">👆</div>
         <p class="a11y-title">Touch Targets</p>
-        <p class="a11y-body">All interactive elements were designed at a minimum height of 48px to meet accessibility standards for users with motor difficulties, ensuring easy tapping on mobile devices.</p>
+        <p class="a11y-body">All interactive mobile elements were designed at a minimum of 48px height, meeting accessibility standards for users with motor difficulties.</p>
       </div>
       <div class="a11y-card">
-        <div class="a11y-icon">🎯</div>
-        <p class="a11y-title">Reduced Motion</p>
-        <p class="a11y-body">Simple slide animations were used rather than complex motion, keeping the experience comfortable for users with vestibular disorders or motion sensitivity.</p>
+        <div class="a11y-icon">🔤</div>
+        <p class="a11y-title">Typography Legibility</p>
+        <p class="a11y-body">The mobile type scale was reduced thoughtfully, keeping body text at 14px minimum to maintain readability on small screens.</p>
       </div>
     </div>
   </div>
 
-  <!-- USABILITY TESTING -->
+  <!-- PROTOTYPE CONNECTIONS -->
   <div class="cs-section reveal">
-    <p class="cs-section-label">Usability Testing</p>
-    <h2 class="cs-section-heading">Two rounds. Real behaviour. Real changes.</h2>
-    <p class="cs-prose" style="margin-bottom: 2.5rem;">Two rounds of usability testing were conducted using a low-fidelity prototype covering the full account opening flow: Welcome → Eligibility Check → Account Comparison → Personal Details → Document Upload → Confirmation.</p>
-
-    <div class="test-round">
-      <p class="test-round-label">Round 01</p>
-      <h3 class="test-round-title">Flow and pattern validation</h3>
-      <p class="test-round-body">Users navigated the full account opening flow without confusion. The account comparison carousel was intuitively recognised — participants attempted to swipe between cards without being prompted, validating the design pattern before the interaction had even been explained.</p>
-    </div>
-
-    <div class="test-round">
-      <p class="test-round-label">Round 02</p>
-      <h3 class="test-round-title">The moment that validated the approach</h3>
-      <p class="test-round-body">Users found the app easy to use and intuitive. One participant's response became the clearest measure of impact:</p>
-    </div>
-
-    <div class="cs-quote">
-      "Everything makes sense. Looks very easy to use. Better than ABSA dare I say."
-      <cite>— Usability test participant (unprompted)</cite>
-    </div>
-
-    <p class="cs-prose" style="margin-bottom: 1.5rem;">This response was given unprompted. The participant referenced ABSA — one of South Africa's largest banks — as a comparison point. For a concept project designed to serve users that existing banking apps have overlooked, this validated the core design approach.</p>
-
-    <p class="cs-section-label" style="margin-top: 2.5rem; margin-bottom: 1rem;">Changes made after testing</p>
+    <p class="cs-section-label">Prototype Connections</p>
+    <h2 class="cs-section-heading">A fully navigable flow.</h2>
+    <p class="cs-prose" style="margin-bottom: 1.5rem;">The interactive prototype covers the full navigation flow, using Push (Left) transitions at 300ms for a native mobile feel.</p>
     <ul class="cs-list">
-      <li>Account comparison layout changed from side-by-side columns to horizontal carousel for better mobile usability</li>
-      <li>Logo removed from inner screens to reduce visual clutter and improve content focus</li>
-      <li>Back navigation added after observing users needed a way to return to previous screens</li>
+      <li>Home → Nav Drawer (hamburger)</li>
+      <li>Nav Drawer → all 6 content screens</li>
+      <li>Home Get Started → Products &amp; Services</li>
+      <li>Products &amp; Services cards → respective banking section screens</li>
+      <li>All screens → Online Banking via nav</li>
     </ul>
-  </div>
-
-  <!-- HI-FI SCREENS -->
-  <div class="cs-section reveal">
-    <p class="cs-section-label">High-Fidelity Prototype</p>
-    <h2 class="cs-section-heading">The final screens.</h2>
-    <div class="cs-image-block">
-      <img src="banking-hifi-screens.png" alt="Banking Without Borders hi-fidelity prototype screens" class="cs-image cs-image-full">
-      <p class="cs-image-caption">Hi-fidelity screens covering the full account opening flow — from eligibility check through to confirmation.</p>
-    </div>
   </div>
 
   <!-- TAKEAWAYS -->
@@ -542,18 +584,17 @@ footer .footer-logo { text-decoration: none; }
     <p class="cs-section-label">Takeaways</p>
     <h2 class="cs-section-heading">What this project taught me.</h2>
     <div class="cs-callout">
-      <p><strong>Impact:</strong> Usability testing confirmed that both user groups — first-time account holders and foreign nationals — were able to complete the full account opening flow without confusion. The carousel redesign was validated by user behaviour before instructions were given, and the upfront document checklist removed the most common reason for pre-application drop-off.</p>
-      <p><strong>What I learned:</strong> The most valuable insight from this project was that psychological barriers are as significant as logistical ones. Designing for Graça taught me that transparency and reassurance are UX decisions, not just copywriting ones. A simple eligibility confirmation screen does more for conversion than any visual design improvement.</p>
+      <p><strong>What worked well:</strong> Building the design system before any screens saved significant time and enforced visual consistency across 13 screens. The brand identity decisions — particularly the chevron logo and navy/gold palette — gave every screen a coherent visual language without needing to make new decisions at each step.</p>
+      <p><strong>What I learned:</strong> Responsive design isn't about scaling — it's about rethinking layout, hierarchy, and interaction patterns for the context a user is operating in. A desktop navbar and a mobile nav drawer aren't the same component at different sizes; they're fundamentally different UX solutions to the same problem.</p>
     </div>
   </div>
 
   <!-- REFLECTION -->
   <div class="cs-section reveal">
     <p class="cs-section-label">Reflection</p>
-    <h2 class="cs-section-heading">Designing solo through the full process.</h2>
+    <h2 class="cs-section-heading">What I'd do differently.</h2>
     <div class="cs-prose">
-      <p>Designing solo across the full UX process deepened my understanding of how each phase informs the next. Building the design system before the hi-fi screens taught me the real value of systematic design thinking. Competitive research on ABSA directly shaped key design decisions, reinforcing that good UX is always informed by what already exists in the market.</p>
-      <p><strong>Limitations:</strong> This project was conducted as part of the Google UX Design Certificate using fictional personas grounded in real user archetypes. The usability testing pool was small. A next iteration would benefit from testing with a more diverse participant group including older adults and users with limited prior banking experience.</p>
+      <p>I would define the mobile component library at the same time as the desktop system, rather than after. The decision to build mobile components separately was correct — but making it earlier would have prevented the component issues encountered mid-project.</p>
     </div>
   </div>
 
@@ -562,9 +603,11 @@ footer .footer-logo { text-decoration: none; }
     <p class="cs-section-label">Next Steps</p>
     <h2 class="cs-section-heading">Where this goes from here.</h2>
     <ol class="steps-list">
-      <li>Conduct a third round of usability testing with a more diverse participant pool — including older adults and users with limited banking experience — to identify remaining friction points.</li>
-      <li>Expand the app to include post-onboarding features such as transaction history, balance overview, fund transfers, and in-app customer support.</li>
-      <li>Responsive Prosperity Bank website — currently in development, ensuring design consistency with the mobile app across desktop, tablet, and mobile breakpoints.</li>
+      <li>Conduct moderated usability testing on the mobile prototype with 5 participants to validate navigation patterns and identify friction points.</li>
+      <li>Design dedicated Gold Rewards and The Prosperity Circle screens to complete the loyalty programme user journey.</li>
+      <li>Build out About Us and Careers pages to complete the site architecture.</li>
+      <li>Design a post-login dashboard screen to extend the Online Banking flow beyond the login state.</li>
+      <li>Develop the existing tablet wireframe to hi-fidelity to complete the full responsive system.</li>
     </ol>
   </div>
 </div>
