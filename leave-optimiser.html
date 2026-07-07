@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave Optimiser — Lebogang Mosimaneotsile</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #F7F2EA; --cream-2: #EDE5D4; --cream-3: #E3D8C4;
+  --ink: #1A1714; --ink-2: #3D3830; --ink-3: #7A7268;
+  --rose-solid: #C49494; --rose-dark: #9E6B6B; --rose-deep: #7A4A4A; --rose-blush: #EDD8D8;
+  --display: 'Playfair Display', Georgia, serif;
+  --italic: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Josefin Sans', sans-serif;
+  --lo-primary: #6B2B06; --lo-accent: #B38A58; --lo-surface: #FFE8D4;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 300; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.8rem 5rem; transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(247,242,234,0.94); backdrop-filter: blur(12px);
+  padding: 1.2rem 5rem; border-bottom: 1px solid rgba(196,148,148,0.15);
+}
+.nav-logo { text-decoration: none; display: flex; align-items: center; }
+.nav-logo img { height: 44px; width: auto; transition: opacity 0.3s ease; }
+.nav-logo:hover img { opacity: 0.75; }
+.cs-back {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--sans); font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); text-decoration: none;
+  margin-bottom: 2.5rem; transition: color 0.3s ease;
+}
+.cs-back:hover { color: rgba(255,255,255,0.7); }
+.cs-back::before { content: '←'; margin-right: 0.3rem; }
+
+/* HERO */
+.cs-hero {
+  min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 5rem 5rem; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #3D1503 0%, #6B2B06 50%, #4A1E04 100%);
+}
+.cs-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 30%, rgba(179,138,88,0.12) 0%, transparent 55%);
+}
+.cs-hero-inner { position: relative; z-index: 1; max-width: 900px; padding-top: 10rem; }
+.cs-hero-tag {
+  font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.cs-hero-tag::before { content: ''; width: 30px; height: 1px; background: rgba(255,255,255,0.2); }
+.cs-hero-title {
+  font-family: var(--display); font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 400; color: rgba(247,242,234,0.92); line-height: 1.0; margin-bottom: 0.6rem;
+}
+.cs-hero-subtitle-line {
+  font-family: var(--italic); font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 300; font-style: italic; color: rgba(247,242,234,0.35);
+  margin-bottom: 3rem; line-height: 1.4;
+}
+.cs-meta {
+  display: flex; gap: 4rem; flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2.5rem;
+}
+.cs-meta-label { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 0.4rem; }
+.cs-meta-value { font-size: 0.82rem; color: rgba(247,242,234,0.5); letter-spacing: 0.03em; }
+
+/* BODY */
+.cs-body { max-width: 780px; margin: 0 auto; padding: 7rem 2rem; }
+.cs-section { margin-bottom: 5rem; }
+.cs-section-label {
+  font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--rose-dark); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.cs-section-label::before { content: ''; width: 24px; height: 1px; background: var(--rose-dark); }
+.cs-section-heading {
+  font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400; color: var(--ink); line-height: 1.2; margin-bottom: 1.8rem;
+}
+.cs-prose { font-size: 0.92rem; line-height: 2; color: var(--ink-2); }
+.cs-prose p { margin-bottom: 1.4rem; }
+.cs-prose p:last-child { margin-bottom: 0; }
+.cs-prose strong { font-weight: 500; color: var(--ink); }
+
+/* CALLOUT */
+.cs-callout {
+  background: var(--cream-2); border-left: 3px solid var(--lo-primary);
+  padding: 2rem 2.5rem; margin: 3rem 0;
+}
+.cs-callout p { font-size: 0.88rem; line-height: 1.85; color: var(--ink-2); margin-bottom: 0.8rem; }
+.cs-callout p:last-child { margin-bottom: 0; }
+.cs-callout strong { font-weight: 500; color: var(--ink); }
+
+/* AUDIT PROBLEMS */
+.problem-list { margin: 2.5rem 0; }
+.problem-item {
+  padding: 2rem; background: var(--cream-2);
+  border: 1px solid rgba(196,148,148,0.2); margin-bottom: 1px;
+}
+.problem-title {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.8rem;
+}
+.problem-body { font-size: 0.88rem; line-height: 1.85; color: var(--ink-2); }
+
+/* IMAGES */
+.cs-image-block { margin: 2rem 0; }
+.cs-image { display: block; width: 100%; height: auto; border: 1px solid rgba(196,148,148,0.15); }
+.cs-image-caption {
+  margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.05em;
+  color: var(--ink-3); font-style: italic; line-height: 1.6; text-align: center;
+}
+.cs-image-stack { display: flex; flex-direction: column; gap: 1rem; margin: 2.5rem 0; }
+.cs-image-stack-label {
+  font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 0.5rem;
+}
+
+/* BEFORE/AFTER LABELS */
+.ba-section { margin: 2.5rem 0; }
+.ba-label-tag {
+  display: inline-block; font-size: 0.58rem; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 0.4rem 1rem; margin-bottom: 1rem;
+}
+.ba-label-tag.before { background: var(--cream-3); color: var(--ink-3); }
+.ba-label-tag.after { background: var(--lo-primary); color: rgba(247,242,234,0.8); }
+
+/* DESIGN TOKEN SWATCHES */
+.token-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2.5rem 0;
+}
+.token-swatch { overflow: hidden; border: 1px solid rgba(196,148,148,0.15); }
+.token-colour { height: 60px; }
+.token-label { padding: 0.6rem 0.8rem; font-size: 0.62rem; letter-spacing: 0.08em; color: var(--ink-3); background: var(--cream-2); }
+.token-name { font-weight: 500; color: var(--ink); display: block; margin-bottom: 0.2rem; }
+
+/* LIVE LINK */
+.live-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--sans); font-size: 0.82rem;
+  color: var(--lo-primary); text-decoration: none;
+  border-bottom: 1px solid rgba(107,43,6,0.3);
+  transition: border-color 0.3s ease;
+}
+.live-link:hover { border-color: var(--lo-primary); }
+.live-link::after { content: ' ↗'; font-size: 0.75rem; }
+
+/* STEPS */
+.steps-list { counter-reset: steps; margin: 1.5rem 0; }
+.steps-list li {
+  display: flex; gap: 1.5rem; align-items: flex-start;
+  padding: 1.2rem 0; border-bottom: 1px solid rgba(196,148,148,0.1);
+  font-size: 0.88rem; line-height: 1.75; color: var(--ink-2);
+  counter-increment: steps; list-style: none;
+}
+.steps-list li::before {
+  content: counter(steps, decimal-leading-zero);
+  font-family: var(--display); font-size: 1rem; font-weight: 400;
+  color: rgba(196,148,148,0.4); flex-shrink: 0; padding-top: 0.05rem; min-width: 2rem;
+}
+
+/* CONTACT / FOOTER */
+.cs-contact {
+  background: var(--ink); padding: 5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;
+}
+.cs-contact-label {
+  font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose-solid);
+  margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;
+}
+.cs-contact-label::before { content: ''; width: 20px; height: 1px; background: var(--rose-solid); }
+.cs-contact-heading { font-family: var(--display); font-size: 2rem; font-weight: 400; color: var(--cream); line-height: 1.2; }
+.cs-contact-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.cs-contact-btn {
+  display: inline-flex; align-items: center; padding: 0.9rem 2rem;
+  font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.3s ease;
+}
+.cs-contact-btn.primary { background: var(--rose-dark); color: var(--cream); border: 1px solid var(--rose-dark); }
+.cs-contact-btn.primary:hover { background: transparent; color: var(--rose-solid); }
+.cs-contact-btn.secondary { background: transparent; color: rgba(247,242,234,0.5); border: 1px solid rgba(247,242,234,0.15); }
+.cs-contact-btn.secondary:hover { border-color: var(--rose-solid); color: var(--rose-solid); }
+
+footer {
+  background: var(--ink); border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center;
+}
+footer p { font-size: 0.7rem; color: rgba(247,242,234,0.25); letter-spacing: 0.05em; }
+footer .footer-logo img { height: 36px; width: auto; opacity: 0.4; transition: opacity 0.3s ease; }
+footer .footer-logo:hover img { opacity: 0.7; }
+footer .footer-logo { text-decoration: none; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 1.4rem 2rem; }
+  nav.scrolled { padding: 1rem 2rem; }
+  .cs-hero { padding: 0 2rem 4rem; }
+  .cs-body { padding: 5rem 1.5rem; }
+  .token-grid { grid-template-columns: repeat(2, 1fr); }
+  .cs-contact { padding: 3rem 2rem; flex-direction: column; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.svg" alt="LM"></a>
+</nav>
+
+<section class="cs-hero">
+  <div class="cs-hero-inner">
+    <a href="index.html#work" class="cs-back">All Work</a>
+    <p class="cs-hero-tag">UX Audit · UI Design · Personal Project</p>
+    <h1 class="cs-hero-title">Leave Optimiser</h1>
+    <p class="cs-hero-subtitle-line">Redesigning a tool I built before I knew what design was</p>
+    <div class="cs-meta">
+      <div class="cs-meta-item">
+        <p class="cs-meta-label">Role</p>
+        <p class="cs-meta-value">UX Designer · UI Designer · Developer</p>
+      </div>
+      <div class="cs-meta-item">
+        <p class="cs-meta-label">Tools</p>
+        <p class="cs-meta-value">Figma · HTML / CSS / JavaScript</p>
+      </div>
+      <div class="cs-meta-item">
+        <p class="cs-meta-label">Status</p>
+        <p class="cs-meta-value">Redesign complete — implementation in progress</p>
+      </div>
+      <div class="cs-meta-item">
+        <p class="cs-meta-label">Live Tool</p>
+        <p class="cs-meta-value"><a href="https://leave-optimiser.vercel.app" target="_blank" style="color: rgba(247,242,234,0.5); text-decoration: none; border-bottom: 1px solid rgba(247,242,234,0.2);">leave-optimiser.vercel.app ↗</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-body">
+
+  <!-- OVERVIEW -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Overview</p>
+    <h2 class="cs-section-heading">It started with an Instagram story.</h2>
+    <div class="cs-prose">
+      <p>The Leave Optimiser started with an Instagram story. A friend posted a list of Botswana's public holidays for the year with notes on how to strategically place leave days around them to create longer breaks. It was genuinely useful, and it was going to disappear in 24 hours. So I built a tool instead.</p>
+      <p>The MVP covered both Botswana and South Africa, recognising that the problem wasn't unique to one country. The Leave Optimiser lets you select your country, input your remaining leave days, and get back a list of the best dates to take off based on proximity to public holidays with a calendar visualisation to help you plan.</p>
+      <p>Two years after coding the MVP, I came back to it with UX training behind me. What I found was a tool that worked and an experience that didn't.</p>
+    </div>
+  </div>
+
+  <!-- WORKING HYPOTHESIS -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Working Hypothesis</p>
+    <h2 class="cs-section-heading">I assumed the problems were cosmetic.</h2>
+    <div class="cs-callout">
+      <p>The assumption going into the redesign was that the problems were cosmetic – a colour pass, better typography, tidier spacing. What the audit revealed was that they were structural. The layout, the output format, and the absence of any visual language were each independently undermining the tool's usefulness. A cosmetic fix would have solved none of them.</p>
+    </div>
+  </div>
+
+  <!-- THE PROBLEM -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">The Problem</p>
+    <h2 class="cs-section-heading">Three problems. Each structural.</h2>
+
+    <div class="problem-list">
+      <div class="problem-item">
+        <p class="problem-title">The layout worked against the user</p>
+        <p class="problem-body">Inputs were stacked vertically, creating unnecessary scroll and making the form feel heavier than it needed to be for something rather simple.</p>
+      </div>
+      <div class="problem-item">
+        <p class="problem-title">The results were data, not insight</p>
+        <p class="problem-body">The tool returned a plain bullet list of dates – no context, no visual anchor, no connection between the suggested day and the holiday it was bridging. A user had to do the interpretation themselves.</p>
+      </div>
+      <div class="problem-item">
+        <p class="problem-title">There was no design language</p>
+        <p class="problem-body">No colour intentionality, no typographic hierarchy, nothing that communicated the tool had been built with care. For a planning tool, trust is a design problem. The original UI didn't earn it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE PROCESS -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">The Process</p>
+    <h2 class="cs-section-heading">System first. Screens second.</h2>
+    <div class="cs-prose">
+      <p>Before touching a single hi-fi screen, I built the design system from scratch. This meant defining everything as Figma Variables rather than static values – 8 colour tokens, 8 spacing and radius values, and 6 text styles. The goal was a system where changing one value would update every component that used it, rather than hunting through screens manually.</p>
+      <p>The colour palette came from deliberate emotional intent. I wanted the tool to feel grounding and serene, the opposite of the anxiety most people feel about annual leave running out. The terracotta and sand tones carry warmth without urgency. With the palette defined as roles – primary, accent, surface, background – rather than just hex codes, every design decision had a clear rationale behind it.</p>
+      <p>Components were built before screens. Buttons in three states (default, hover, disabled), input fields in two states (default, focused), and calendar day cells in four states (weekday, weekend, public holiday, suggested leave day/bridge days) – all as Figma component sets with named variants. This meant the hi-fi screen was assembled from a library of decisions already made, not a collection of one-off elements.</p>
+    </div>
+
+    <div class="token-grid">
+      <div class="token-swatch">
+        <div class="token-colour" style="background: #6B2B06;"></div>
+        <div class="token-label"><span class="token-name">Primary</span>#6B2B06</div>
+      </div>
+      <div class="token-swatch">
+        <div class="token-colour" style="background: #B38A58;"></div>
+        <div class="token-label"><span class="token-name">Accent</span>#B38A58</div>
+      </div>
+      <div class="token-swatch">
+        <div class="token-colour" style="background: #FFE8D4;"></div>
+        <div class="token-label"><span class="token-name">Surface</span>#FFE8D4</div>
+      </div>
+      <div class="token-swatch">
+        <div class="token-colour" style="background: #F7F2EA; border-bottom: 1px solid rgba(196,148,148,0.2);"></div>
+        <div class="token-label"><span class="token-name">Background</span>#F7F2EA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEFORE & AFTER -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Before &amp; After</p>
+    <h2 class="cs-section-heading">Same logic. Better experience.</h2>
+    <div class="cs-prose" style="margin-bottom: 2.5rem;">
+      <p>The original tool was functional but gave no visual cues about priority, context, or hierarchy. Suggestions appeared as a plain bulleted list. The calendar was a generic library component with no custom styling. The layout required scrolling to see results.</p>
+      <p>The redesigned interface presents everything on a single screen without scrolling. Suggested bridge days appear as labelled pills showing which holiday they bridge. Public holidays are listed with their names alongside the dates. The calendar uses colour directly – deep brown for public holidays, warm tan for bridge days – so the logic is scannable without reading.</p>
+    </div>
+
+    <div class="ba-section">
+      <span class="ba-label-tag before">Before</span>
+      <div class="cs-image-stack">
+        <div class="cs-image-block" style="margin: 0;">
+          <img src="lo-before-layout.png" alt="Original Leave Optimiser — layout and inputs" class="cs-image">
+          <p class="cs-image-caption">The original layout — vertically stacked inputs with no visual hierarchy, requiring scroll to reach results.</p>
+        </div>
+        <div class="cs-image-block" style="margin: 0;">
+          <img src="lo-before-suggestions.png" alt="Original Leave Optimiser — plain bullet list of suggested dates" class="cs-image">
+          <p class="cs-image-caption">Suggestions returned as a plain bullet list — dates without context, no connection to the holiday being bridged.</p>
+        </div>
+        <div class="cs-image-block" style="margin: 0;">
+          <img src="lo-before-calendar.png" alt="Original Leave Optimiser — generic library calendar" class="cs-image">
+          <p class="cs-image-caption">The calendar — a generic library component with no custom styling, using red for public holidays and green dots for leave days.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ba-section" style="margin-top: 3rem;">
+      <span class="ba-label-tag after">After</span>
+      <div class="cs-image-block">
+        <img src="lo-after.png" alt="Redesigned Leave Optimiser — Figma hi-fi screen" class="cs-image">
+        <p class="cs-image-caption">The redesign — two-column layout, everything on one screen. Bridge days as labelled pills, colour-coded calendar, full design system in place.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPACT -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Impact</p>
+    <h2 class="cs-section-heading">The problem was real before the redesign was finished.</h2>
+    <div class="cs-prose">
+      <p>The redesign hasn't been coded yet – the current live version at <a href="https://leave-optimiser.vercel.app" target="_blank" class="live-link">leave-optimiser.vercel.app</a> is still the original MVP. Implementation is the next step, not a completed one.</p>
+      <p>What does exist is the LinkedIn response to the original tool. When I posted about the Leave Optimiser, the reaction from people in my network was immediate – the concept resonated. That response is what confirmed the problem was real and worth solving properly, not just shipping quickly.</p>
+      <p>The redesign addresses all three audit findings. The two-column layout eliminates unnecessary scroll. The calendar visualisation makes the bridge day logic immediately scannable without reading a list. The design system gives the tool a visual language that communicates care and builds trust. Whether those decisions hold up will be confirmed once the redesign is live and in front of real users.</p>
+    </div>
+  </div>
+
+  <!-- LEARNINGS -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Learnings</p>
+    <h2 class="cs-section-heading">Interface problems are communication problems.</h2>
+    <div class="cs-prose">
+      <p>The most clarifying moment in this project was realising that the three problems I identified in the audit weren't interface problems – they were communication problems. The tool knew the right answer. It just had no way of showing you why it was right.</p>
+      <p>That distinction, between a tool that outputs data and an interface that delivers insight, is something I understood abstractly before this project, and working through the redesign made it concrete. Every decision in the new interface (the pills, the colour coding, the single-screen layout) exists to close the gap between what the algorithm knows and what the user understands.</p>
+    </div>
+  </div>
+
+  <!-- REFLECTION -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Reflection</p>
+    <h2 class="cs-section-heading">It was correct. It just wasn't clear.</h2>
+    <div class="cs-prose">
+      <p>I built the original Leave Optimiser as a developer. I didn't think about hierarchy or trust or what it feels like to get back a list of dates with no explanation. I thought about whether the algorithm was correct. And it was correct, it just wasn't clear.</p>
+      <p>Coming back to this tool after learning UX design is the most direct evidence I have of what that training actually changed. The logic didn't need to improve, the communication however did – recognising that distinction and knowing what to do about it, is the difference between building something functional and designing something useful.</p>
+      <p>This project is also unfinished in a way I want to be honest about. The redesign is complete in Figma. The live tool hasn't been updated yet. The case study you're reading describes a design decision, not a shipped product. That gap closes when the implementation does and that's next.</p>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="cs-section reveal">
+    <p class="cs-section-label">Next Steps</p>
+    <h2 class="cs-section-heading">What comes next.</h2>
+    <ol class="steps-list">
+      <li>Implement the redesign in code, translating the Figma design system directly into CSS variables, keeping the same token structure in code that was used in design.</li>
+      <li>Conduct informal usability testing before launch, put the redesigned interface in front of 3–5 people who currently manage their leave manually and validate whether the bridge day logic is as immediately scannable as the design assumes.</li>
+      <li>Expand country coverage, South Africa and Botswana were the starting point.</li>
+      <li>Add an export or connect function, I'd like to add a feature that ability to export the suggested leave plan to a calendar or PDF.</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="cs-contact">
+  <div class="cs-contact-text">
+    <p class="cs-contact-label">Let's talk</p>
+    <h2 class="cs-contact-heading">Want to discuss<br>this project?</h2>
+  </div>
+  <div class="cs-contact-actions">
+    <a href="mailto:lebogangmosimaneotsile@gmail.com" class="cs-contact-btn primary">Send an Email</a>
+    <a href="https://www.linkedin.com/in/lebogangmosimaneotsile/" target="_blank" class="cs-contact-btn secondary">LinkedIn ↗</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo"><img src="logo.svg" alt="LM"></a>
+  <p>© 2026 Lebogang Mosimaneotsile.</p>
+  <p>lebogangmosimaneotsile.github.io</p>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); ro.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(el => ro.observe(el));
+window.addEventListener('load', () => {
+  reveals.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('revealed'); });
+});
+</script>
+</body>
+</html>
