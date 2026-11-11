@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mmaraka | Case Study | Lebogang Mosimaneotsile</title>
+<meta name="description" content="Mmaraka is an agritech product exploring how buyer demand and farmer supply can be matched digitally in Botswana. Interactive front-end MVP prototype.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F7F2EA;
+  --cream-2: #EDE5D4;
+  --cream-3: #E3D8C4;
+  --ink: #1A1714;
+  --ink-2: #3D3830;
+  --ink-3: #7A7268;
+  --rose-solid: #C49494;
+  --rose-dark: #9E6B6B;
+  --rose-deep: #7A4A4A;
+  --rose-blush: #EDD8D8;
+  --sage-bg: #DDE6DA;
+  --sage-ink: #3A5A44;
+  --display: 'Playfair Display', Georgia, serif;
+  --italic: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Josefin Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* TOP BAR */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 5rem;
+  background: rgba(247, 242, 234, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(196, 148, 148, 0.18);
+}
+
+.topbar img { height: 38px; width: auto; display: block; }
+
+.back-link {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-2);
+  transition: color 0.3s ease;
+}
+
+.back-link:hover { color: var(--rose-dark); }
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 7rem 5rem 4rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(196, 148, 148, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+
+.eyebrow {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--rose-dark); }
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 8vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  line-height: 1.4;
+  color: var(--rose-dark);
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(196, 148, 148, 0.3);
+}
+
+.meta div {
+  padding: 1.1rem 1rem 1.1rem 0;
+  border-bottom: 1px solid rgba(196, 148, 148, 0.3);
+}
+
+.meta dt {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.2rem;
+  line-height: 1.6;
+}
+
+.meta dd {
+  font-family: var(--display);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* PROTOTYPE LINKS */
+.topbar-links { display: flex; gap: 2rem; align-items: center; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-top: 2.4rem; }
+.hero-note { font-size: 0.78rem; color: var(--ink-3); max-width: 560px; margin: 1rem 0 0; line-height: 1.7; }
+.btn-dark, .btn-outline {
+  display: inline-block;
+  padding: 0.95rem 2.2rem;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-dark { background: var(--ink); color: var(--cream); border: 1px solid var(--ink); }
+.btn-dark:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
+.btn-outline { color: var(--ink); border: 1px solid rgba(26, 23, 20, 0.3); }
+.btn-outline:hover { border-color: var(--rose-dark); color: var(--rose-dark); }
+.text-link { color: var(--rose-deep); text-decoration: none; border-bottom: 1px solid var(--rose-solid); transition: color 0.3s ease, border-color 0.3s ease; }
+.text-link:hover { color: var(--rose-dark); border-color: var(--rose-dark); }
+
+/* SECTIONS */
+main { max-width: 1100px; margin: 0 auto; padding: 0 5rem; }
+
+section.cs { padding: 5rem 0; border-top: 1px solid rgba(196, 148, 148, 0.25); }
+
+.sec-num {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  color: var(--rose-solid);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6rem;
+}
+
+h2 {
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1.8rem;
+  max-width: 760px;
+}
+
+h3 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 2.4rem 0 0.8rem;
+}
+
+h4 {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin: 1.6rem 0 0.3rem;
+}
+
+p { font-size: 0.95rem; color: var(--ink-2); max-width: 720px; margin-bottom: 1.2rem; }
+
+.lead { font-size: 1.05rem; color: var(--ink); }
+
+ul.plain, ol.steps { max-width: 720px; margin: 0 0 1.4rem; padding-left: 1.2rem; }
+ul.plain li, ol.steps li { font-size: 0.95rem; color: var(--ink-2); margin-bottom: 0.35rem; padding-left: 0.3rem; }
+ol.steps li::marker { color: var(--rose-dark); font-family: var(--display); }
+ul.plain li::marker { color: var(--rose-solid); }
+
+blockquote.pull {
+  max-width: 720px;
+  margin: 1.8rem 0;
+  padding: 1.2rem 1.6rem;
+  border-left: 2px solid var(--rose-dark);
+  background: rgba(196, 148, 148, 0.07);
+  font-family: var(--italic);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.callout {
+  max-width: 720px;
+  margin: 1.8rem 0;
+  padding: 1.4rem 1.6rem;
+  background: var(--cream-2);
+  border: 1px solid rgba(196, 148, 148, 0.25);
+}
+
+.callout .tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin-bottom: 0.4rem;
+}
+
+.callout p { margin-bottom: 0.6rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+/* CARDS */
+.cards { display: grid; gap: 1.2rem; margin: 1.8rem 0 1.6rem; }
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.cards.two { grid-template-columns: repeat(2, 1fr); }
+.cards.four { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  padding: 1.6rem;
+  background: var(--cream-2);
+  border: 1px solid rgba(196, 148, 148, 0.22);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover { transform: translateY(-3px); border-color: var(--rose-dark); }
+
+.card .label {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card h5 { font-family: var(--display); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; }
+.card p { font-size: 0.86rem; line-height: 1.75; color: var(--ink-3); margin-bottom: 0; }
+
+/* FIGURES */
+figure { margin: 2.2rem 0; }
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(26, 23, 20, 0.1);
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(26, 23, 20, 0.08);
+}
+
+figcaption {
+  font-family: var(--italic);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin-top: 0.8rem;
+  max-width: 640px;
+}
+
+.figs-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; margin: 2.2rem 0; }
+.figs-2 figure { margin: 0; }
+
+.split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: start; }
+.split figure { margin-top: 0.4rem; }
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 1.6rem 0; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; max-width: 820px; }
+
+th {
+  text-align: left;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0.7rem 1rem 0.7rem 0;
+  border-bottom: 1px solid var(--ink-3);
+}
+
+td {
+  padding: 0.85rem 1rem 0.85rem 0;
+  border-bottom: 1px solid rgba(196, 148, 148, 0.3);
+  color: var(--ink-2);
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+td:first-child { font-family: var(--display); color: var(--ink); }
+
+.pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.7rem;
+  line-height: 1.5;
+}
+
+.pill.done { background: var(--sage-bg); color: var(--sage-ink); }
+.pill.pending { background: var(--rose-blush); color: var(--rose-deep); }
+.pill.none { background: var(--cream-3); color: var(--ink-3); }
+
+/* STAGES */
+.stage { padding: 1.6rem 0; border-top: 1px solid rgba(196, 148, 148, 0.25); display: grid; grid-template-columns: 180px 1fr; gap: 2rem; }
+.stage:first-of-type { border-top: none; }
+.stage .stage-name { font-family: var(--display); font-size: 1.1rem; line-height: 1.35; }
+.stage .stage-name span { display: block; font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose-dark); margin-bottom: 0.3rem; }
+.stage ul { margin: 0; padding-left: 1.1rem; }
+.stage li { font-size: 0.92rem; color: var(--ink-2); margin-bottom: 0.3rem; }
+.stage li::marker { color: var(--rose-solid); }
+
+/* CLOSING */
+.closing { background: var(--ink); color: var(--cream); padding: 6rem 5rem; margin-top: 2rem; }
+.closing-inner { max-width: 1100px; margin: 0 auto; }
+.closing .eyebrow { color: var(--rose-solid); }
+.closing .eyebrow::before { background: var(--rose-solid); }
+.closing h2 { color: var(--cream); }
+.closing p { color: rgba(247, 242, 234, 0.6); }
+.closing .links { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(201, 160, 160, 0.4);
+  color: var(--cream);
+  transition: all 0.3s ease;
+}
+
+.btn.primary { background: var(--rose-dark); border-color: var(--rose-dark); }
+.btn.primary:hover { background: transparent; color: var(--rose-solid); }
+.btn:not(.primary):hover { border-color: var(--rose-solid); color: var(--rose-solid); }
+
+footer.page-foot { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); padding: 1.6rem 5rem; }
+footer.page-foot p { font-size: 0.7rem; color: rgba(247, 242, 234, 0.3); letter-spacing: 0.05em; margin: 0 auto; max-width: 1100px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .topbar { padding: 1rem 1.5rem; }
+  .hero { padding: 4.5rem 1.5rem 3rem; }
+  main { padding: 0 1.5rem; }
+  .meta { grid-template-columns: 1fr 1fr; }
+  section.cs { padding: 3.5rem 0; }
+  .cards.three, .cards.two, .cards.four { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .figs-2 { grid-template-columns: 1fr; }
+  .stage { grid-template-columns: 1fr; gap: 0.6rem; }
+  .closing { padding: 4rem 1.5rem; }
+  footer.page-foot { padding: 1.4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" aria-label="Back to portfolio home"><img src="logo.svg" alt="LM"></a>
+  <div class="topbar-links">
+    <a href="https://mmaraka-prototype-v1-2.vercel.app" target="_blank" rel="noopener" class="back-link">Live prototype &nearr;</a>
+    <a href="/index.html#work" class="back-link">&larr; Back to portfolio</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Agritech &middot; Product Design &middot; Front-End Development</p>
+    <h1>Mmaraka</h1>
+    <p class="subtitle">Connecting agricultural buyers and farmers through digital demand matching</p>
+    <dl class="meta">
+      <div><dt>Project type</dt><dd>Independent product design and development project</dd></div>
+      <div><dt>Industry</dt><dd>Agritech</dd></div>
+      <div><dt>Initial market</dt><dd>Botswana</dd></div>
+      <div><dt>Role</dt><dd>Product Designer &middot; UX/UI Designer &middot; Front-End Developer</dd></div>
+      <div><dt>Timeline</dt><dd>2023 to present</dd></div>
+      <div><dt>Status</dt><dd>Interactive front-end MVP prototype</dd></div>
+    </dl>
+    <div class="hero-actions">
+      <a href="https://mmaraka-prototype-v1-2.vercel.app" target="_blank" rel="noopener" class="btn-dark">View live prototype &nearr;</a>
+      <a href="#approach" class="btn-outline">See the user journeys</a>
+    </div>
+    <p class="hero-note">The prototype runs in your browser and saves data locally, so anything you enter stays on your device and is not shared with other visitors.</p>
+  </div>
+</div>
+
+<main>
+
+<!-- 01 OVERVIEW -->
+<section class="cs" id="overview">
+  <div class="split">
+    <div>
+      <p class="sec-num">01</p>
+      <h2>Project overview</h2>
+      <p class="lead">Mmaraka is an agritech platform exploring how digital technology can make agricultural demand more visible and accessible to farmers while helping buyers connect with potential suppliers.</p>
+      <p>The concept was developed approximately three years ago around a central question:</p>
+      <blockquote class="pull">How might farmers gain better visibility into what buyers need, rather than relying solely on existing trading relationships to identify potential markets?</blockquote>
+      <p>The idea has since evolved into an interactive prototype with separate experiences for farmers and buyers.</p>
+    </div>
+    <figure>
+      <img src="mmaraka-role-selection.jpg" alt="Mmaraka welcome screen asking users whether they are a farmer or a buyer" width="480" height="253">
+      <figcaption>Two distinct entry points support the different objectives of farmers and buyers.</figcaption>
+    </figure>
+  </div>
+
+  <p style="margin-top:1rem;">Mmaraka is intended to develop beyond a conventional produce marketplace, bringing together three connected areas:</p>
+  <div class="cards three">
+    <div class="card"><p class="label">Grow</p><h5>Farm and crop production</h5><p>Production management for farmers.</p></div>
+    <div class="card"><p class="label">Trade</p><h5>Demand and supply matching</h5><p>Buyer demand matched with farmer supply.</p></div>
+    <div class="card"><p class="label">Learn</p><h5>Agricultural knowledge</h5><p>Produce quality information and guidance.</p></div>
+  </div>
+  <p>The current MVP focuses primarily on the Trade experience.</p>
+</section>
+
+<!-- 02 PROBLEM SPACE -->
+<section class="cs" id="problem">
+  <p class="sec-num">02</p>
+  <h2>The problem space</h2>
+  <p>Agricultural trade requires coordination between producers and potential purchasers.</p>
+  <p>Farmers need ways to identify purchasing opportunities and communicate what they can supply. Buyers need to communicate their requirements, including product type, quantity, quality, location and required delivery date.</p>
+  <p>Mmaraka explores whether a shared digital environment could make these requirements more visible and facilitate initial connections between the two groups.</p>
+
+  <div class="callout">
+    <p class="tag">Initial problem hypothesis</p>
+    <p>If buyers can communicate their agricultural requirements through a shared platform, farmers may have better visibility into potential purchasing opportunities and be able to respond based on their available produce.</p>
+    <p><strong style="font-weight:500;">This is an initial product hypothesis, not a validated research finding.</strong> Further conversations with farmers and buyers are needed to establish the extent of the problem and how they currently navigate it.</p>
+  </div>
+</section>
+
+<!-- 03 USERS -->
+<section class="cs" id="users">
+  <p class="sec-num">03</p>
+  <h2>Understanding the users</h2>
+  <p>Mmaraka currently considers two primary user groups.</p>
+
+  <div class="cards two">
+    <div class="card">
+      <p class="label">Buyers</p>
+      <h5>Communicating what they need</h5>
+      <p>Potential users include retailers, supermarkets, restaurants, food processors, institutions and agricultural traders. Their primary need is to communicate purchasing requirements and discover potential suppliers.</p>
+    </div>
+    <div class="card">
+      <p class="label">Farmers</p>
+      <h5>Finding who needs what they grow</h5>
+      <p>Potential users include arable and pastoral farmers. Their primary need is to discover buyer demand, understand purchasing requirements and communicate the produce they can supply.</p>
+    </div>
+  </div>
+
+  <p>An important product consideration is that these roles are not necessarily mutually exclusive. A farmer may also purchase agricultural produce, so the longer-term account structure should support multiple roles.</p>
+
+  <div class="figs-2">
+    <figure>
+      <img src="mmaraka-farmer-profile.jpg" alt="Mmaraka farmer profile setup form with name, mobile number, district, town and crop selection" width="900" height="474">
+      <figcaption>Farmer profile setup captures contact information, location and the crops grown. Crop selection supports multiple choices.</figcaption>
+    </figure>
+    <figure>
+      <img src="mmaraka-buyer-profile.jpg" alt="Mmaraka buyer profile setup form" width="480" height="253">
+      <figcaption>Buyers create a profile before publishing demand, using the same guided setup pattern.</figcaption>
+    </figure>
+  </div>
+
+  <p>User profiles and needs are currently informed by the initial product concept and contextual assumptions. Formal user research remains a future activity.</p>
+</section>
+
+<!-- 04 PRODUCT APPROACH -->
+<section class="cs" id="approach">
+  <p class="sec-num">04</p>
+  <h2>Product approach</h2>
+  <p>Rather than attempting to build a complete agricultural trading ecosystem immediately, I focused the initial MVP on one central interaction: connecting buyer demand with farmer supply.</p>
+
+  <h3>Buyer journey</h3>
+  <ol class="steps">
+    <li>Create a buyer profile.</li>
+    <li>Publish a demand listing.</li>
+    <li>Specify the product, category, quantity and unit.</li>
+    <li>Describe quality requirements, budget and location.</li>
+    <li>Provide a required date and contact information.</li>
+    <li>Review responses from interested farmers.</li>
+    <li>Contact potential suppliers directly.</li>
+  </ol>
+
+  <div class="figs-2">
+    <figure>
+      <img src="mmaraka-buyer-dashboard.jpg" alt="Mmaraka buyer dashboard showing demand listing metrics and an empty state prompting the first requirement" width="480" height="253">
+      <figcaption>The buyer dashboard provides an overview of demand listings and response activity.</figcaption>
+    </figure>
+    <figure>
+      <img src="mmaraka-create-demand.jpg" alt="Mmaraka create demand form with product, category, quantity, unit, location and quality fields" width="480" height="253">
+      <figcaption>The demand form structures purchasing requirements so farmers can understand what a buyer is looking for.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Farmer journey</h3>
+  <ol class="steps">
+    <li>Create a farmer profile.</li>
+    <li>Browse available buyer demand.</li>
+    <li>Search and filter listings.</li>
+    <li>Review individual purchasing requirements.</li>
+    <li>Respond with the quantity they can supply and their earliest availability.</li>
+    <li>Connect with interested buyers through direct contact.</li>
+  </ol>
+
+  <figure>
+    <img src="mmaraka-farmer-marketplace.jpg" alt="Mmaraka farmer marketplace listing buyer demand cards with product, quantity, location and required date" width="900" height="474">
+    <figcaption>Farmers can browse buyer requests across different products, quantities and locations.</figcaption>
+  </figure>
+
+  <!--
+    ADD THESE TWO SCREENS WHEN YOU HAVE THEM (save in the repo root, same folder as this file):
+
+    <figure>
+      <img src="mmaraka-listing-response.jpg" alt="Mmaraka listing detail with the farmer response form" width="900" height="474">
+      <figcaption>The response workflow allows a farmer to offer a partial quantity rather than having to fulfil the entire buyer request.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="mmaraka-submitted-response.jpg" alt="Mmaraka farmer workspace showing a submitted offer" width="900" height="474">
+      <figcaption>The farmer's workspace displays the submitted offer and confirms that the response was sent.</figcaption>
+    </figure>
+  -->
+
+  <div class="callout">
+    <p class="tag">Product decision: allow partial supply</p>
+    <p>In the prototype walkthrough, a buyer requested 800 kg of onions. The farmer submitted an offer for 600 kg, with an indicated availability date.</p>
+    <p>The platform should let a farmer respond with what they can actually supply, rather than forcing them to fulfil the whole request or not respond at all.</p>
+  </div>
+</section>
+
+<!-- 05 DESIGN AND DEVELOPMENT -->
+<section class="cs" id="build">
+  <p class="sec-num">05</p>
+  <h2>Design and development</h2>
+  <h3 style="margin-top:0;">Moving from concept to an interactive MVP</h3>
+  <p>I developed the front end using React and Vite, with CSS for styling and browser localStorage for initial data persistence.</p>
+  <p>The current prototype includes:</p>
+  <ul class="plain">
+    <li>Separate farmer and buyer experiences.</li>
+    <li>Profile creation and role selection.</li>
+    <li>Buyer demand creation.</li>
+    <li>Agricultural demand discovery and filtering.</li>
+    <li>Listing detail views.</li>
+    <li>Farmer supply responses.</li>
+    <li>Partial-quantity offers.</li>
+    <li>Farmer response history.</li>
+    <li>Buyer response workspace.</li>
+    <li>Produce quality guidance.</li>
+  </ul>
+
+  <div class="callout">
+    <p class="tag">Try the prototype</p>
+    <p>The current build is live and can be explored in the browser: <a href="https://mmaraka-prototype-v1-2.vercel.app" target="_blank" rel="noopener" class="text-link">open the Mmaraka prototype &nearr;</a></p>
+    <p>A suggested route on the farmer side: set up a profile, browse buyer demand, open a listing and respond with a partial quantity. On the buyer side: create a buyer profile, publish a demand listing and review the dashboard.</p>
+    <p>Because the prototype uses localStorage, everything you enter stays in your own browser. Nothing is shared with other visitors, so a buyer and a farmer cannot yet see each other's activity. Section 07 explains why.</p>
+    <p><strong style="font-weight:500;">Known issue:</strong> as a buyer, the Farmer responses page currently shows a blank area instead of an empty-state message. This is documented in section 06.</p>
+  </div>
+
+  <h3>Design considerations</h3>
+  <div class="cards four">
+    <div class="card"><p class="label">01</p><h5>Different users, connected workflows</h5><p>The farmer and buyer experiences have different objectives, but they need to operate within one coherent product.</p></div>
+    <div class="card"><p class="label">02</p><h5>Information clarity</h5><p>Listings need to communicate practical information clearly, including product, quantity, quality requirements, location and availability.</p></div>
+    <div class="card"><p class="label">03</p><h5>Reducing unnecessary complexity</h5><p>The MVP focuses on facilitating discovery and initial contact rather than managing every aspect of an agricultural transaction.</p></div>
+    <div class="card"><p class="label">04</p><h5>Desktop-first development</h5><p>An initial development decision, not a conclusion about how farmers should ultimately access the platform. Mobile accessibility will need to be evaluated against actual user contexts and research.</p></div>
+  </div>
+</section>
+
+<!-- 06 ITERATION -->
+<section class="cs" id="iteration">
+  <p class="sec-num">06</p>
+  <h2>Iteration and usability observations</h2>
+  <p>Building the prototype and walking through both user experiences helped identify interface issues that were not necessarily apparent during implementation.</p>
+
+  <h3>Empty states and system feedback</h3>
+  <p>During the buyer walkthrough, selecting the Farmer responses page resulted in a blank content area. This is different from an intentional empty state. A blank page can make it appear as though the application has failed to load.</p>
+  <h4>Proposed improvement</h4>
+  <p>Display a clear message explaining that no farmer responses have been received yet. The farmer response workspace also needs to communicate clearly when there are no submitted responses.</p>
+  <p><span class="pill pending">Issue identified during walkthrough. Implementation and retesting pending.</span></p>
+
+  <h3>Produce quality and grading</h3>
+  <p>The prototype includes a general Produce Quality Guide, but crop-specific grading requirements require further investigation. Botswana-specific standards need to be verified before official grade definitions are presented as authoritative.</p>
+  <p><span class="pill pending">General guidance available. Official crop-specific standards remain to be verified.</span></p>
+
+  <h3>Scope decision: import restrictions</h3>
+  <p>An import-restrictions feature was explored during development. However, reliable and current regulatory information could not be established for the prototype. I decided to defer this feature rather than publish potentially outdated or unverified information.</p>
+  <p><span class="pill none">Excluded from the current MVP scope.</span></p>
+</section>
+
+<!-- 07 TECHNICAL -->
+<section class="cs" id="technical">
+  <p class="sec-num">07</p>
+  <h2>Technical implementation and constraints</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Technology</th><th>Application</th></tr></thead>
+      <tbody>
+        <tr><td>React</td><td>Interface development</td></tr>
+        <tr><td>Vite</td><td>Development environment and build tooling</td></tr>
+        <tr><td>CSS</td><td>Interface styling</td></tr>
+        <tr><td>localStorage</td><td>Initial browser-based data persistence</td></tr>
+        <tr><td>Vercel</td><td>Hosting for the live prototype</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Current limitations</h3>
+  <p>The prototype is currently a front-end demonstration rather than a fully connected multi-user application. Because it uses localStorage:</p>
+  <ul class="plain">
+    <li>Data is stored within the browser environment.</li>
+    <li>Different users cannot reliably access shared live information.</li>
+    <li>Production authentication is not implemented.</li>
+    <li>Real-time updates are not implemented.</li>
+    <li>Buyer listings and farmer responses are not yet synchronised through a shared backend.</li>
+  </ul>
+  <p>The next technical milestone is integrating Supabase for authentication, shared data persistence, database relationships and access control.</p>
+</section>
+
+<!-- 08 WALKTHROUGHS -->
+<section class="cs" id="walkthroughs">
+  <p class="sec-num">08</p>
+  <h2>Prototype walkthroughs</h2>
+  <p>I conducted walkthroughs of the prototype from both the farmer and buyer perspectives. These were exploratory self-directed walkthroughs, not formal usability tests with target users.</p>
+  <p>The farmer walkthrough demonstrated profile creation, demand discovery, listing details, partial-supply response submission and response history.</p>
+  <p>The buyer walkthrough demonstrated buyer profile creation, demand listing creation, dashboard metrics and navigation to the response workspace.</p>
+  <p>The walkthroughs helped identify a confirmed blank-page issue in the buyer response workspace. They did not establish that independently registered users can exchange information through a shared live backend.</p>
+  <p>You can follow the same routes yourself in the <a href="https://mmaraka-prototype-v1-2.vercel.app" target="_blank" rel="noopener" class="text-link">live prototype &nearr;</a></p>
+</section>
+
+<!-- 09 STATUS -->
+<section class="cs" id="status">
+  <p class="sec-num">09</p>
+  <h2>Current project status</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Area</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Product concept</td><td><span class="pill done">Established</span></td></tr>
+        <tr><td>Farmer experience</td><td><span class="pill done">Prototype implemented</span></td></tr>
+        <tr><td>Buyer experience</td><td><span class="pill done">Prototype implemented</span></td></tr>
+        <tr><td>Live prototype</td><td><span class="pill done">Deployed</span></td></tr>
+        <tr><td>Demand creation</td><td><span class="pill done">Demonstrated</span></td></tr>
+        <tr><td>Demand discovery and filtering</td><td><span class="pill done">Demonstrated</span></td></tr>
+        <tr><td>Partial supply responses</td><td><span class="pill done">Demonstrated</span></td></tr>
+        <tr><td>Farmer response history</td><td><span class="pill done">Demonstrated</span></td></tr>
+        <tr><td>Buyer response workspace</td><td><span class="pill pending">UI issue identified</span></td></tr>
+        <tr><td>Produce quality guidance</td><td><span class="pill done">General guide implemented</span></td></tr>
+        <tr><td>Official crop grading</td><td><span class="pill pending">Verification pending</span></td></tr>
+        <tr><td>Import restrictions</td><td><span class="pill pending">Deferred</span></td></tr>
+        <tr><td>Supabase integration</td><td><span class="pill none">Not started</span></td></tr>
+        <tr><td>Formal user research</td><td><span class="pill none">Not conducted</span></td></tr>
+        <tr><td>Target-user usability testing</td><td><span class="pill none">Not conducted</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 10 NEXT STEPS -->
+<section class="cs" id="next">
+  <p class="sec-num">10</p>
+  <h2>Next steps</h2>
+  <div class="stage">
+    <div class="stage-name"><span>Stage 1</span>Stabilise the prototype</div>
+    <ul>
+      <li>Resolve the blank buyer response page.</li>
+      <li>Review and retest empty states.</li>
+      <li>Review quality terminology in demonstration listings.</li>
+      <li>Preserve the current interface as a stable baseline.</li>
+    </ul>
+  </div>
+  <div class="stage">
+    <div class="stage-name"><span>Stage 2</span>Backend architecture and development</div>
+    <ul>
+      <li>Design the database structure.</li>
+      <li>Introduce Supabase authentication.</li>
+      <li>Establish farmer and buyer profiles that can support multiple roles.</li>
+      <li>Connect buyer demand listings and farmer responses.</li>
+      <li>Introduce appropriate data ownership and access controls.</li>
+    </ul>
+  </div>
+  <div class="stage">
+    <div class="stage-name"><span>Stage 3</span>Research and testing</div>
+    <ul>
+      <li>Engage potential farmers and buyers.</li>
+      <li>Investigate current agricultural trading practices.</li>
+      <li>Test the product with intended users.</li>
+      <li>Refine the experience based on observed needs.</li>
+    </ul>
+  </div>
+  <div class="stage">
+    <div class="stage-name"><span>Stage 4</span>Further product development</div>
+    <ul>
+      <li>Develop the Grow production-management experience.</li>
+      <li>Expand the Learn knowledge centre.</li>
+      <li>Evaluate mobile accessibility.</li>
+      <li>Explore production records and how they might inform available supply.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11 REFLECTIONS -->
+<section class="cs" id="reflection">
+  <p class="sec-num">11</p>
+  <h2>Reflections and learning</h2>
+  <p>Mmaraka has become an opportunity to explore product design beyond the visual interface. Developing the platform requires consideration of how different users interact with the same system, how information is structured, how workflows connect and how technical decisions influence the overall experience.</p>
+  <p>It has also reinforced the importance of distinguishing between assumptions and evidence.</p>
+  <p>One of the most valuable aspects of building the prototype has been identifying questions and interface gaps through implementation and walkthroughs. Some of these issues would not necessarily have been apparent at the conceptual stage.</p>
+  <p>As development continues, I want to use Mmaraka to explore the relationship between human behaviour, technology and product design, particularly within the context of agricultural markets in Botswana.</p>
+</section>
+
+</main>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <p class="eyebrow">Project status: ongoing</p>
+    <h2>Want to discuss this project?</h2>
+    <p>This case study documents the development of Mmaraka as it progresses. It will be updated to reflect actual research, product decisions, implementation changes, challenges and lessons learned. The current prototype is an early-stage product exploration, not a validated or completed solution.</p>
+    <div class="links">
+      <a href="https://mmaraka-prototype-v1-2.vercel.app" target="_blank" rel="noopener" class="btn primary">View live prototype &nearr;</a>
+      <a href="mailto:lebogangmosimaneotsile@gmail.com" class="btn">Send an email</a>
+      <a href="https://www.linkedin.com/in/lebogangmosimaneotsile/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+
+    </div>
+  </div>
+</div>
+
+<footer class="page-foot">
+  <p>&copy; 2026 Lebogang Mosimaneotsile</p>
+</footer>
+
+</body>
+</html>
